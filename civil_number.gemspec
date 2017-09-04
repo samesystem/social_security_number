@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Vitalija Korkuc"]
   spec.email         = ["tankiaitaskuota@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{It provides validators for national identification numbers. Currently the following countries are supported:}
+  spec.description   = %q{It provides validators for national identification numbers. Currently the following countries are supported:}
   spec.homepage      = "https://github.com/TankiaiTaskuota/civil_number"
   spec.license       = "MIT"
 

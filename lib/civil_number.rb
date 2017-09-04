@@ -1,5 +1,6 @@
 require "civil_number/version"
 
 module CivilNumber
-  # Your code goes here...
+  #autoload :Validator, 'civil_number/validator'
+  autoload :Country, 'civil_number/country'
 end
