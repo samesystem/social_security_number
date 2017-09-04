@@ -1,5 +1,6 @@
 module CivilNumber
   class Country
+    require "country/lt"
     attr_reader :civil_number, :country_code, :error
 
     SUPPORTED_COUNTRY_CODES = %w(LT)

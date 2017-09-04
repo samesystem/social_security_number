@@ -15,7 +15,7 @@ module CivilNumber
 
     def valid?
       return false if @civil_number.blank?
-      "CivilNumber::#{@country_code.titleize}".constantize.send(@civil_number)
+      "Country::#{@country_code.titleize}".constantize.send(@civil_number)
     end
 
     private
