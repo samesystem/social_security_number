@@ -1,7 +1,7 @@
 module CivilNumber
   module Country
     class Lt
-      def valid?
+      def self.valid?
       #  unless check_digits and check_length(CONTROLCIPHERS.size)
       #    return false
       #  end

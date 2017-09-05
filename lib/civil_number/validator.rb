@@ -13,15 +13,9 @@ module CivilNumber
       end
     end
 
-    def valid?
+    def self.valid?
       return false if @civil_number.blank?
-      "Country::#{@country_code.titleize}".constantize.send(@civil_number)
-    end
-
-    private
-
-    def validate_by_country
-      @country_code.constantize.send(@civil_number)
+      "CivilNumber::Country::#{@country_code.titleize}".constantize.valid?(@civil_number)
     end
   end
 end
