@@ -1,25 +1,17 @@
 module CivilNumber
-  module Country
+  class Country
     require 'date'
+    require "civil_number/country/dk"
     require "civil_number/country/lt"
+    require "civil_number/country/nl"
+    require "civil_number/country/no"
+    require "civil_number/country/se"
 
-    class << self
-    attr_reader :civil_number, :country_code, :error
-    end
+    attr_accessor :civil_number, :birth_date, :gender, :individual, :control_number, :error
 
-    SUPPORTED_COUNTRY_CODES = %w(LT NO)
-
-    def initialize(civil_number, country_code)
-      @civil_number = civil_number.to_s.strip.gsub(/\s+/, '').upcase
-      @country_code = country_code.to_s.strip.gsub(/\s+/, '').upcase
-      unless self.class::SUPPORTED_COUNTRY_CODES.include?(@country_code)
-        raise RuntimeError.new("Unexpected country code '#{country_code}' that is not yet supported")
-      end
-    end
-
-    def valid?
-      return false if @civil_number.blank?
-      "CivilNumber::Country::#{@country_code.titleize}".constantize.valid?(@civil_number)
+    def initialize(civil_number)
+      @civil_number = formatted(civil_number)
+      values_from_number if self.class::REGEXP
     end
 
     private
@@ -35,15 +27,23 @@ module CivilNumber
     end
 
     def check_digits
-      unless code =~ /\A\d+\z/
+      unless @civil_number =~ /\A\d+\z/
         @error = 'non digits present'
         return false
       end
       true
     end
 
+    def check_by_regexp(regexp)
+      unless @civil_number =~ regexp
+        @error = 'format validation'
+        return false
+      end
+      true
+    end
+
     def check_length(size)
-      unless code.length == size
+      unless @civil_number.length == size
         @error = 'code length invalid'
         return false
       end
@@ -52,7 +52,7 @@ module CivilNumber
 
     # checks format: ddmmyy
     def check_date
-      unless code =~ /\A(\d\d)(\d\d)(\d\d)/
+      unless @civil_number =~ /\A(\d\d)(\d\d)(\d\d)/
         @error = 'date format invalid'
         return false
       end
@@ -61,6 +61,20 @@ module CivilNumber
         return false
       end
       true
+    end
+
+    def values_from_number
+      matches = @civil_number.match(self.class::REGEXP) or return nil
+
+      year  = matches[:year].to_i
+      month = matches[:month].to_i
+      day   = matches[:day].to_i
+
+      full_year = base_year({year:year}) + year
+      @birth_date = Date.new(full_year, month, day) if Date.valid_date?(full_year, month, day)
+      @gender = matches[:gender].to_i
+      @individual = matches[:individual].to_i
+      @control_number = matches[:control].to_i
     end
 
   end

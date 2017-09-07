@@ -1,14 +1,21 @@
 module CivilNumber
-  module Country
-    class Lt
-      def self.valid?
-      #  unless check_digits and check_length(CONTROLCIPHERS.size)
-      #    return false
-      #  end
-      #  unless check_control_sum
-      #    @error = 'control sum invalid'
-      #    return false
-      #  end
+    class Lt < Country
+
+      def valid?
+        unless check_digits and check_length(11) and birth_date
+        end
+        unless check_control_sum
+          @error = 'control sum invalid'
+          return false
+        end
+        if !@birth_date.nil? and birth_date.to_s != @birth_date
+          @error = 'birth date invalid'
+          return false
+        end
+        if !@gender.nil? and gender != @gender
+          @error = 'gender invalid'
+          return false
+        end
         true
       end
 
@@ -17,13 +24,13 @@ module CivilNumber
       end
 
       def birth_date
-        matches = code.match(/^(?<day>\d{2})(?<month>\d{2})(?<year>\d{2})-?(?<individual_number>\d{3})/) or return nil
+        matches = @civil_number.match(/^(?<gender>\d{1})(?<year>\d{2})(?<month>\d{2})(?<day>\d{2})-?(?<individual_number>\d{4})/) or return nil
 
         year  = matches[:year].to_i
         month = matches[:month].to_i
         day   = matches[:day].to_i
 
-        full_year = base_year(year, matches[:individual_number].to_i) + year
+        full_year = base_year(year, matches[:gender].to_i) + year
 
         Date.new(full_year, month, day) if Date.valid_date?(full_year, month, day)
       end
@@ -32,12 +39,33 @@ module CivilNumber
 
       MODULUS = 11
 
-      CONTROLCIPHERS = [9, 8, 7, 6, 5, 4, 3, 2, -1].freeze
+      CONTROLCIPHERS_1 = [1,2,3,4,5,6,7,8,9,1].freeze
+      CONTROLCIPHERS_2 = [3,4,5,6,7,8,9,1,2,3].freeze
 
       def check_control_sum
-        sum = calc_sum(code, CONTROLCIPHERS)
-        sum % MODULUS == 0
+        count_last_number == @civil_number[-1, 1].to_i
+      end
+
+      def count_last_number
+        sum = calc_sum(@civil_number[0..9], CONTROLCIPHERS_1)
+        last_number = sum % MODULUS
+        if last_number < 10
+          return last_number
+        else
+          sum = calc_sum(@civil_number[0..9], CONTROLCIPHERS_2)
+          last_number = sum % MODULUS
+          if last_number < 10
+            return last_number
+          end
+        end
+        return 0
+      end
+
+      def base_year(year, gender)
+        case gender.to_i
+        when 3..4 then 1900
+        when 5..6 then 2000
+        end
       end
     end
-  end
 end

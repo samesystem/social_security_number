@@ -1,19 +1,22 @@
 module CivilNumber
-  module Country
-    class No
+    class No < Country
       def valid?
-      #  unless check_digits and check_length(CONTROLCIPHERS.size)
-      #    return false
-      #  end
-      #  unless check_control_sum
-      #    @error = 'control sum invalid'
-      #    return false
-      #  end
-        false
+        unless check_digits and check_length(11) and check_date
+          return false
+        end
+        unless check_control_digit_1
+          @error = 'first control code invalid'
+          return false
+        end
+        unless check_control_digit_2
+          @error = 'second control code invalid'
+          return false
+        end
+        true
       end
 
       def gender
-        code[0].to_i.odd? ? :female : :male
+        code[8].to_i.odd? ? :male : :female
       end
 
       def birth_date
@@ -32,12 +35,25 @@ module CivilNumber
 
       MODULUS = 11
 
-      CONTROLCIPHERS = [9, 8, 7, 6, 5, 4, 3, 2, -1].freeze
+      CONTROLCIPHERS_1 = [3, 7, 6, 1, 8, 9, 4, 5, 2].freeze
+      CONTROLCIPHERS_2 = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2].freeze
 
-      def check_control_sum
-        sum = calc_sum(code, CONTROLCIPHERS)
-        sum % MODULUS == 0
+      def check_control_digit_1
+        ctrl = 11 - calc_sum(code[0, 9], CONTROLCIPHERS_1) % MODULUS
+        (ctrl % MODULUS).to_s == code[-2]
       end
-    end
+
+      def check_control_digit_2
+        ctrl = 11 - calc_sum(code[0, 10], CONTROLCIPHERS_2) % MODULUS
+        (ctrl % MODULUS).to_s == code[-1]
+      end
+
+      def base_year(year, individual_number)
+        case individual_number.to_i
+        when 000..499 then 1900 # rubocop:disable Style/NumericLiteralPrefix
+        when 500..899 then year >= 54 ? 1800 : 2000
+        when 900..999 then year >= 40 ? 1900 : 2000
+        end
+      end
   end
 end
