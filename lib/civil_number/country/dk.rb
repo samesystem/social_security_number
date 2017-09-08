@@ -1,7 +1,7 @@
 module CivilNumber
   class Dk < Country
     def valid?
-      unless check_digits and check_length(CONTROLCIPHERS.size) and check_date
+      unless check_length(CONTROLCIPHERS.size) and check_date
         return false
       end
       if valid_1968
@@ -19,11 +19,11 @@ module CivilNumber
     end
 
     def gender
-      @code[-1].to_i.odd? ? :male : :female
+      @civil_number[-1].to_i.odd? ? :male : :female
     end
 
     def birth_date
-      matches = code.match(/^(?<day>\d{2})(?<month>\d{2})(?<year>\d{2})/) or return nil
+      matches = @civil_number.match(/^(?<day>\d{2})(?<month>\d{2})(?<year>\d{2})/) or return nil
 
       full_year = expand_to_full_year(matches[:year].to_i)
 
@@ -55,12 +55,12 @@ module CivilNumber
 
     # main validation
     def valid_1968
-      sum = calc_sum(@code, CONTROLCIPHERS)
+      sum = calc_sum(@civil_number, CONTROLCIPHERS)
       sum % MODULUS_1968 == 0
     end
 
     def valid_2007
-      control = @code[6, 4].to_i
+      control = @civil_number[6, 4].to_i
 
       rem_2007 = control % MODULUS_2007
 
@@ -70,7 +70,7 @@ module CivilNumber
     end
 
     def expand_to_full_year(year)
-      current_year = Time.current.year % 100
+      current_year = Time.now.year % 100
       offset_year = year
 
       offset_year += 100 if year < current_year

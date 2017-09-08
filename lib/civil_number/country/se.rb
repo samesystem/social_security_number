@@ -1,14 +1,15 @@
 module CivilNumber
   class Se < Country
-    def valid?
+
+
+    def validate
       unless check_by_regexp(REGEXP) and !@birth_date.nil?
-        return false
+        @error = 'bad number format'
       end
+
       unless check_control_digit
         @error = 'first control code invalid'
-        return false
       end
-      true
     end
 
     private
@@ -53,6 +54,10 @@ module CivilNumber
       when 1..40 then 2000
       when 40..99 then 1900
       end
+    end
+
+    def get_gender(code)
+      code.odd? ? :female : :male
     end
 end
 end

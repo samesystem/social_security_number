@@ -1,17 +1,18 @@
 module CivilNumber
   class Country
     require 'date'
-    require "civil_number/country/dk"
-    require "civil_number/country/lt"
-    require "civil_number/country/nl"
-    require "civil_number/country/no"
-    require "civil_number/country/se"
 
     attr_accessor :civil_number, :birth_date, :gender, :individual, :control_number, :error
 
     def initialize(civil_number)
-      @civil_number = formatted(civil_number)
-      values_from_number if self.class::REGEXP
+      @civil_number = self.class.respond_to?(:formatted) ? self.class.formatted(civil_number) : civil_number
+      values_from_number if self.class.const_defined?('REGEXP')
+    end
+
+    def valid?
+      @error = nil
+      validate
+      @error.nil?
     end
 
     private
@@ -69,10 +70,12 @@ module CivilNumber
       year  = matches[:year].to_i
       month = matches[:month].to_i
       day   = matches[:day].to_i
-
-      full_year = base_year({year:year}) + year
+      gender = matches[:gender].to_i
+puts gender
+puts base_year({year: year, gender: gender})
+      full_year = base_year({year: year, gender: gender}) + year
       @birth_date = Date.new(full_year, month, day) if Date.valid_date?(full_year, month, day)
-      @gender = matches[:gender].to_i
+      @gender = get_gender(gender)
       @individual = matches[:individual].to_i
       @control_number = matches[:control].to_i
     end

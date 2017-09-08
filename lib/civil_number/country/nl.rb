@@ -18,7 +18,7 @@ module CivilNumber
       CONTROLCIPHERS = [9, 8, 7, 6, 5, 4, 3, 2, -1].freeze
 
       def check_control_sum
-        sum = calc_sum(code, CONTROLCIPHERS)
+        sum = calc_sum(@civil_number, CONTROLCIPHERS)
         sum % MODULUS == 0
       end
     end
