@@ -6,7 +6,7 @@ module CivilNumber
           'it is not number'
         elsif !check_length(11)
           'number shuld be length of 11'
-        elsif !gender_number
+        elsif gender_number > 6
           'gender number is not recognaized'
         elsif !birth_date
           'number birth date is invalid'
@@ -48,11 +48,17 @@ module CivilNumber
         when 1..2 then 1800
         when 3..4 then 1900
         when 5..6 then 2000
+        else
+          0
         end
       end
 
       def get_gender(code)
         code.odd? ? :male : :female
+      end
+
+      def gender_number
+        @civil_number.to_s[0].to_i
       end
 
     end

@@ -1,14 +1,13 @@
 module CivilNumber
     class Nl < Country
-      def valid?
-        unless check_digits and check_length(CONTROLCIPHERS.size)
-          return false
+      def validate
+        @error = if !check_digits
+          'it is not number'
+        elsif !check_length(CONTROLCIPHERS.size)
+          'number shuld be length of 9 or 8'
+        elsif !check_control_sum
+          'number control sum invalid'
         end
-        unless check_control_sum
-          @error = 'control sum invalid'
-          return false
-        end
-        true
       end
 
       private
@@ -20,6 +19,10 @@ module CivilNumber
       def check_control_sum
         sum = calc_sum(@civil_number, CONTROLCIPHERS)
         sum % MODULUS == 0
+      end
+
+      def formatted(civil_number)
+       civil_number.length == 8 ? "0#{civil_number}" : civil_number
       end
     end
 end

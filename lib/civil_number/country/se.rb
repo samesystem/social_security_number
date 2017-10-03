@@ -1,14 +1,13 @@
 module CivilNumber
   class Se < Country
 
-
     def validate
-      unless check_by_regexp(REGEXP) and !@birth_date.nil?
-        @error = 'bad number format'
-      end
-
-      unless check_control_digit
-        @error = 'first control code invalid'
+      @error = if !check_by_regexp(REGEXP)
+        'bad number format'
+      elsif @birth_date.nil?
+        'number birth date is invalid'
+      elsif !check_control_digit
+        'number control sum invalid'
       end
     end
 
@@ -18,11 +17,12 @@ module CivilNumber
 
     CONTROLCIPHERS = [2, 1, 2, 1, 2, 1, 2, 1, 2].freeze
 
-    REGEXP = /^(?<year>\d{2})(?<month>\d{2})(?<day>\d{2})-(?<individual>\d{2})(?<gender>\d{1})(?<control>\d{1})$/
+    REGEXP = /^(?<year>\d{4})(?<month>\d{2})(?<day>\d{2})-(?<individual>\d{2})(?<gender>\d{1})(?<control>\d{1})$/
 
     def check_control_digit
        sum = checksum(:even)
        control_number = (sum % 10 != 0) ? 10 - (sum % 10) : 0
+       puts control_number
        control_number == @control_number
     end
 
@@ -53,6 +53,8 @@ module CivilNumber
       case year[:year].to_i
       when 1..40 then 2000
       when 40..99 then 1900
+      else
+        0
       end
     end
 
