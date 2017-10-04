@@ -28,5 +28,17 @@ describe CivilNumber::Validator do
       expect(cv).to be_valid
       expect(cv.error).to be_nil
     end
+
+    it 'when validator receice birth_date and country have birth_date in civil number' do
+      cv = CivilNumber::Validator.new({number:'33309240064', country_code:'lt', birth_date:'1933-09-24'})
+      expect(cv).to be_valid
+      expect(cv.error).to be_nil
+    end
+
+    it 'when validator receice birth_date and country have birth_date in civil number in date format' do
+      cv = CivilNumber::Validator.new({number:'33309240064', country_code:'lt', birth_date:Date.new(1933, 9, 24)})
+      expect(cv).to be_valid
+      expect(cv.error).to be_nil
+    end
   end
 end

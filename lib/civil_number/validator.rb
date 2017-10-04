@@ -20,7 +20,7 @@ module CivilNumber
       civil_number = CivilNumber.const_get(@country_code.capitalize).new(@civil_number)
 
       if civil_number.valid?
-        if !@birth_date.nil? and  !civil_number.birth_date.nil? and civil_number.birth_date.to_s != @birth_date
+        if !@birth_date.nil? and  !civil_number.birth_date.nil? and civil_number.birth_date.to_s != @birth_date.to_s
           @error = "birth date #{@birth_date} dont match #{civil_number.birth_date}"
           return false
         end
