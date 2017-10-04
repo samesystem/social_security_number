@@ -56,7 +56,7 @@ describe CivilNumber::Se do
   describe '#base_year' do
     let(:number) {'19391030-4296'}
     context 'when receive valid value' do
-      it { expect(civil_number.send(:base_year,{year:2})).to eq(2000)}
+      it { expect(civil_number.send(:base_year,{year:2})).to eq(2002)}
     end
 
     context 'when receive invalid value' do
@@ -86,7 +86,7 @@ describe CivilNumber::Se do
     context 'when string contais full date' do
       it { expect(civil_number.send(:formatted,'193910304298')).to eq("391030-4298")}
     end
-    
+
     context 'when string is short' do
       it { expect(civil_number.send(:formatted,'3910304298')).to eq("391030-4298")}
     end

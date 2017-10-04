@@ -44,13 +44,14 @@ module CivilNumber
       end
 
       def base_year(year)
-        case year[:gender].to_i
+        base = case year[:gender].to_i
         when 1..2 then 1800
         when 3..4 then 1900
         when 5..6 then 2000
         else
           0
         end
+        base + year[:year].to_i
       end
 
       def get_gender(code)

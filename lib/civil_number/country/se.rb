@@ -22,7 +22,6 @@ module CivilNumber
     def check_control_digit
        sum = checksum(:even)
        control_number = (sum % 10 != 0) ? 10 - (sum % 10) : 0
-       puts control_number
        control_number == @control_number
     end
 
@@ -50,12 +49,13 @@ module CivilNumber
     end
 
     def base_year(year)
-      case year[:year].to_i
+      base = case year[:year].to_i
       when 1..40 then 2000
       when 40..99 then 1900
       else
         0
       end
+      base + year[:year].to_i
     end
 
     def get_gender(code)

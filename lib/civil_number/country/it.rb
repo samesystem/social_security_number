@@ -23,9 +23,9 @@ module CivilNumber
 
     def base_year(year)
       current_year = Time.now.year % 100
-      offset_year = year[:year]
-      offset_year += 100 if year[:year] and year[:year] < current_year
-      1900 + offset_year.to_i
+      offset_year = year[:year].to_i
+      offset_year += 100 if year[:year] and offset_year < current_year
+      1900 + offset_year
     end
 
   end

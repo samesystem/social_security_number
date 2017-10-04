@@ -50,7 +50,6 @@ module CivilNumber
 
     def values_from_number
       matches = @civil_number.match(self.class::REGEXP) or return nil
-      @year  = matches[:year].to_i if matches.names.include?('year')
 
       if matches.names.include?('month')
         @month = self.class.private_instance_methods(false).include?(:get_month) ? get_month(matches[:month]) : matches[:month].to_i
@@ -63,11 +62,11 @@ module CivilNumber
       gender = matches[:gender].to_i if matches.names.include?('gender')
       divider = matches[:divider].to_s if matches.names.include?('divider')
 
-      if @year
-        full_year = base_year({year: @year, gender: gender}) + year
+      if matches.names.include?('year')
+        @year = base_year({year: matches[:year], gender: gender})
       end
 
-      @birth_date = Date.new(full_year, @month, @day) if full_year and Date.valid_date?(full_year, month, day)
+      @birth_date = Date.new(@year, @month, @day) if Date.valid_date?(@year, @month, @day)
       @gender = get_gender(gender) if gender
       @individual = matches[:individual].to_i if matches.names.include?('individual')
       @control_number = matches[:control].to_i if matches.names.include?('control')

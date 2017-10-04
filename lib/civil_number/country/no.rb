@@ -45,13 +45,14 @@ module CivilNumber
       end
 
       def base_year(year)
-        case (year[:individual_number].to_i*10+year[:gender]).to_i
+        base = case (year[:individual_number].to_i*10+year[:gender]).to_i
         when 000..499 then 1900
-        when 500..899 then year[:year] >= 54 ? 1800 : 2000
-        when 900..999 then year[:year] >= 40 ? 1900 : 2000
+        when 500..899 then year[:year].to_i >= 54 ? 1800 : 2000
+        when 900..999 then year[:year].to_i >= 40 ? 1900 : 2000
         else
           0
         end
+        base + year[:year].to_i
       end
 
       def get_gender(code)
