@@ -1,6 +1,8 @@
 # CivilNumber
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/civil_number`. To experiment with that code, run `bin/console` for an interactive prompt.
+This small Gem adds useful methods to your Ruby or Rails app to validate for national identification numbers. Currently the following countries are supported: Denmark, Germany, Italy, Lithuania, Netherlands, Norway, Sweden.
+
+Find version information in the CHANGELOG.
 
 
 ## Installation
