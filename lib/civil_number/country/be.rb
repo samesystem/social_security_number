@@ -14,11 +14,6 @@ module CivilNumber
 
     private
 
-    MODULUS = 11
-
-    CONTROLCIPHERS_1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1].freeze
-    CONTROLCIPHERS_2 = [3, 4, 5, 6, 7, 8, 9, 1, 2, 3].freeze
-
     REGEXP = /^(?<year>\d{2})[- .]?(?<month>\d{2})[- .]?(?<day>\d{2})[- .]?(?<individual>\d{3})[- .]?(?<control>\d{2})$/
 
     def check_control_sum
