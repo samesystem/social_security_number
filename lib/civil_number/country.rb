@@ -69,7 +69,7 @@ module CivilNumber
       if matches.names.include?('year')
         @year = base_year(year: matches[:year], gender: gender)
       end
-      @birth_date = Date.new(@year, @month, @day) if Date.valid_date?(@year, @month, @day)
+      @birth_date = Date.new(@year, @month, @day) if @year && @month && @day && Date.valid_date?(@year, @month, @day)
     end
   end
 end
