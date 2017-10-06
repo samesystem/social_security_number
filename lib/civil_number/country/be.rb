@@ -31,7 +31,7 @@ module CivilNumber
       1900 + offset_year
     end
 
-    def get_gender(_code)
+    def gender_from_number
       @individual.odd? ? :male : :female
     end
   end

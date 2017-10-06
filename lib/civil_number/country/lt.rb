@@ -55,7 +55,7 @@ module CivilNumber
       end
 
       def get_gender(code)
-        code.odd? ? :male : :female
+        code.to_i.odd? ? :male : :female
       end
 
       def gender_number

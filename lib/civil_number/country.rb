@@ -28,28 +28,22 @@ module CivilNumber
     end
 
     def check_digits
-      unless @civil_number =~ /\A\d+\z/
-        return false
-      end
+      return false unless @civil_number =~ /\A\d+\z/
       true
     end
 
     def check_by_regexp(regexp)
-      unless @civil_number =~ regexp
-        return false
-      end
+      return false unless @civil_number =~ regexp
       true
     end
 
     def check_length(size)
-      unless @civil_number.length == size
-        return false
-      end
+      return false unless @civil_number.length == size
       true
     end
 
     def values_from_number
-      matches = @civil_number.match(self.class::REGEXP) or return nil
+      (matches = @civil_number.match(self.class::REGEXP)) || (return nil)
 
       if matches.names.include?('month')
         @month = self.class.private_instance_methods(false).include?(:get_month) ? get_month(matches[:month]) : matches[:month].to_i
@@ -59,18 +53,23 @@ module CivilNumber
         @day = self.class.private_instance_methods(false).include?(:get_day) ? get_day(matches[:day].to_i) : matches[:day].to_i
       end
 
-      gender = matches[:gender].to_i if matches.names.include?('gender')
       divider = matches[:divider].to_s if matches.names.include?('divider')
 
-      if matches.names.include?('year')
-        @year = base_year({year: matches[:year], gender: gender})
-      end
 
-      @birth_date = Date.new(@year, @month, @day) if Date.valid_date?(@year, @month, @day)
-      @gender = get_gender(gender) if gender
       @individual = matches[:individual].to_i if matches.names.include?('individual')
       @control_number = matches[:control].to_i if matches.names.include?('control')
-    end
 
+      gender = matches[:gender].to_i if matches.names.include?('gender')
+
+      @gender = if matches.names.include?('gender')
+                  get_gender(gender)
+                else
+                  gender_from_number if self.class.private_instance_methods(false).include?(:gender_from_number)
+                end
+      if matches.names.include?('year')
+        @year = base_year(year: matches[:year], gender: gender)
+      end
+      @birth_date = Date.new(@year, @month, @day) if Date.valid_date?(@year, @month, @day)
+    end
   end
 end

@@ -1,6 +1,6 @@
 module CivilNumber
   class Validator
-    SUPPORTED_COUNTRY_CODES = %w[BE DE DK IT LT NL NO SE UK].freeze
+    SUPPORTED_COUNTRY_CODES = %w[BE CH DE DK IT LT NL NO SE UK].freeze
 
     attr_accessor :civil_number, :country_code, :error
 
