@@ -5,7 +5,7 @@ module CivilNumber
     attr_accessor :civil_number, :birth_date, :gender, :individual, :control_number, :year, :month, :day, :error
 
     def initialize(civil_number)
-      @civil_number = self.class.respond_to?(:formatted) ? self.class.formatted(civil_number) : civil_number
+      @civil_number = self.class.respond_to?(:formatted) ? self.class.formatted(civil_number) : civil_number.to_s.upcase
       values_from_number if self.class.const_defined?('REGEXP')
     end
 
