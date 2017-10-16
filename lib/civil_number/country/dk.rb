@@ -6,10 +6,8 @@ module CivilNumber
         'bad number format'
       elsif @birth_date.nil?
         'number birth date is invalid'
-      elsif !valid_1968
-        'first control code invalid'
-      elsif !valid_2007
-        'second control code invalid'
+      elsif !valid_1968 and !valid_2007
+        'control code invalid'
       end
     end
 

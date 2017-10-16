@@ -35,8 +35,8 @@ describe CivilNumber::Dk do
     end
 
     context 'when number has bad control number' do
-      let(:number) { '1004932991' }
-      it { is_expected.to eq('first control code invalid') }
+      let(:number) { '311277-0005' }
+      it { is_expected.to eq('control code invalid') }
     end
 
   end
