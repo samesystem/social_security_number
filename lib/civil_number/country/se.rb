@@ -22,7 +22,7 @@ module CivilNumber
     def check_control_digit
        sum = checksum(:even)
        control_number = (sum % 10 != 0) ? 10 - (sum % 10) : 0
-       control_number == @control_number
+       control_number.to_i == @control_number.to_i
     end
 
     def checksum(operation)

@@ -13,7 +13,7 @@ module CivilNumber
       REGEXP = /^(?<gender>\d{1})(?<year>\d{2})(?<month>\d{2})(?<department1>\d{1})(?<department2>[0-9AB]{1})(?<place>\d{3})(?<individual>\d{3})(?<control>\d{2})$/
 
       def check_control_sum
-        count_last_number == @control_number
+        count_last_number == @control_number.to_i
       end
 
       def count_last_number

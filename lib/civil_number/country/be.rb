@@ -17,7 +17,7 @@ module CivilNumber
     REGEXP = /^(?<year>\d{2})[- .]?(?<month>\d{2})[- .]?(?<day>\d{2})[- .]?(?<individual>\d{3})[- .]?(?<control>\d{2})$/
 
     def check_control_sum
-      count_last_number == @control_number || count_last_number('2') == @control_number
+      count_last_number == @control_number.to_i || count_last_number('2') == @control_number.to_i
     end
 
     def count_last_number(number = '0')
@@ -32,7 +32,7 @@ module CivilNumber
     end
 
     def gender_from_number
-      @individual.odd? ? :male : :female
+      @individual.to_i.odd? ? :male : :female
     end
   end
 end

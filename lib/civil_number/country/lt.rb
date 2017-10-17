@@ -25,7 +25,7 @@ module CivilNumber
       REGEXP = /^(?<gender>\d{1})(?<year>\d{2})(?<month>\d{2})(?<day>\d{2})-?(?<individual>\d{3})(?<control>\d{1})$/
 
       def check_control_sum
-        count_last_number == @control_number
+        count_last_number == @control_number.to_i
       end
 
       def count_last_number

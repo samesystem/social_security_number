@@ -56,8 +56,8 @@ module CivilNumber
       divider = matches[:divider].to_s if matches.names.include?('divider')
 
 
-      @individual = matches[:individual].to_i if matches.names.include?('individual')
-      @control_number = matches[:control].to_i if matches.names.include?('control')
+      @individual = matches[:individual].to_s if matches.names.include?('individual')
+      @control_number = matches[:control].to_s if matches.names.include?('control')
 
       gender = matches[:gender].to_i if matches.names.include?('gender')
 
