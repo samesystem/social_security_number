@@ -1,12 +1,11 @@
 module CivilNumber
   class Ch < Country
+    # https://en.wikipedia.org/wiki/National_identification_number#Switzerland
+    # https://de.wikipedia.org/wiki/Sozialversicherungsnummer#Versichertennummer
+    # http://www.sozialversicherungsnummer.ch/aufbau-neu.htm
     def validate
-      @error = if !check_digits
-                 'it is not number'
-               elsif !check_by_regexp(REGEXP)
+      @error = if !check_by_regexp(REGEXP)
                  'bad number format'
-               elsif !birth_date
-                 'number birth date is invalid'
                elsif !check_control_sum
                  'number control sum invalid'
       end
@@ -14,26 +13,24 @@ module CivilNumber
 
     private
 
-    MODULUS = 11
+    MODULUS = 10
 
-    CONTROLCIPHERS = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1].freeze
+    CONTROLCIPHERS = [1,3,1,3,1,3,1,3,1,3,1,3].freeze
 
-    REGEXP = /^(?<adress>\d{6})[- .]?(?<year>\d{4})[- .]?(?<month>\d{2})[- .]?(?<day>\d{2})[- .]?(?<individual>\d{3})[- .]?(?<control>\d{1})$/
+    REGEXP = /^(?<adress>756)[.]?(?<individual1>\d{4})[.]?(?<individual2>\d{4})[.]?(?<individual3>\d{1})(?<control>\d{1})$/
 
     def check_control_sum
       count_last_number.to_i == @control_number.to_i
     end
 
     def count_last_number
-      (12 - (calc_sum(@civil_number[0..16], CONTROLCIPHERS) % MODULUS)) % MODULUS
+      sum = calc_sum(number[0..11], CONTROLCIPHERS)
+      modus = sum % MODULUS
+      modus > 0 ? 10 - modus : modus
     end
 
-    def base_year(year)
-      year[:year].to_i
-    end
-
-    def gender_from_number
-      @individual.to_i.odd? ? :male : :female
+    def number
+      @civil_number.gsub('.', '')
     end
   end
 end
