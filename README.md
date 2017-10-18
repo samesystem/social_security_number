@@ -1,6 +1,6 @@
 # CivilNumber
 
-This small Gem adds useful methods to your Ruby or Ruby on Rails app to validate for national identification numbers. Currently the following countries are supported: Belgium, China, Czech Republic, Denmark, Germany, Finland, France, Ireland, Italy, Lithuania, Netherlands, Norway, Pakistan, Spain, Sweden, Switzerland, United Kingdom.
+This small Gem adds useful methods to your Ruby or Ruby on Rails app to validate for national identification numbers. Currently the following countries are supported: Belgium, China, Czech Republic, Denmark, Germany, Finland, France, Ireland, Italy, Lithuania, Mexico, Netherlands, Norway, Pakistan, Spain, Sweden, Switzerland, United Kingdom.
 
 Find version information in the CHANGELOG.
 
