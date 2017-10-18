@@ -17,6 +17,10 @@ module CivilNumber
 
     private
 
+    def get_digit_number
+      @civil_number.gsub(/[^\d]/, '')
+    end
+
     def calc_sum(number, ciphers)
       digits = number.split(//)
 

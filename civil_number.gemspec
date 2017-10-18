@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tankiaitaskuota@gmail.com"]
 
   spec.summary       = %q{It provides validators for national identification numbers.}
-  spec.description   = %q{It provides validators for national identification numbers. Currently the following countries are supported: Belgium, Canada, China, Czech Republic, Denmark, Germany, Finland, France, Ireland, Italy, Lithuania, Mexico, Netherlands, Norway, Pakistan, Spain, Sweden, Switzerland, United Kingdom }
+  spec.description   = %q{It provides validators for national identification numbers. Currently the following countries are supported: Belgium, Canada, China, Czech Republic, Denmark, Germany, Finland, France, Iceland, Ireland, Italy, Lithuania, Mexico, Netherlands, Norway, Pakistan, Spain, Sweden, Switzerland, United Kingdom }
   spec.homepage      = "https://github.com/TankiaiTaskuota/civil_number"
   spec.license       = "MIT"
 

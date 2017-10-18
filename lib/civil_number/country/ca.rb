@@ -23,7 +23,7 @@ module CivilNumber
     end
 
     def count_number_sum
-      digits = number.split(//)
+      digits = get_digit_number.split(//)
       new_number = []
       sum = 0
       digits.each_with_index do |digit, i|
@@ -40,10 +40,5 @@ module CivilNumber
       end
       sum
     end
-
-    def number
-      @civil_number.gsub(/[^\d]/, '')
-    end
-
   end
 end
