@@ -35,37 +35,37 @@ describe CivilNumber::Is do
     end
 
     context 'when number has bad control number' do
-      let(:number) {'120174-3329'}
+      let(:number) { '120174-3329' }
       it { is_expected.to eq('number control sum invalid') }
     end
   end
 
   describe '#count_control_number' do
-    let(:number) {'120174-3329'}
-    it { expect(civil_number.send(:count_control_number)).to eq(9)}
+    let(:number) { '120174-3329' }
+    it { expect(civil_number.send(:count_control_number)).to eq(9) }
   end
 
   describe '#check_control_sum' do
     context 'when control number coincide with count number' do
-      let(:number) {'120174-3399'}
-      it { expect(civil_number.send(:check_control_sum)).to eq(true)}
+      let(:number) { '120174-3399' }
+      it { expect(civil_number.send(:check_control_sum)).to eq(true) }
     end
 
     context 'when control number not coincide with count number' do
-      let(:number) {'120174-3329'}
-      it { expect(civil_number.send(:check_control_sum)).to eq(false)}
+      let(:number) { '120174-3329' }
+      it { expect(civil_number.send(:check_control_sum)).to eq(false) }
     end
   end
 
-  describe '#base_year' do
+  describe '#year' do
     context 'when receive value 2000 +' do
-      let(:number) { '120174-3329' }
-      it { expect(civil_number.send(:base_year, year: 2)).to eq(2002) }
+      let(:number) { '120102-3329' }
+      it { expect(civil_number.send(:year)).to eq(2002) }
     end
 
     context 'when receive value 1900 +' do
-      let(:number) { '120174-3329' }
-      it { expect(civil_number.send(:base_year, year: 40)).to eq(1940) }
+      let(:number) { '120140-3329' }
+      it { expect(civil_number.send(:year)).to eq(1940) }
     end
   end
 end

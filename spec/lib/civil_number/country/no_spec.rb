@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe CivilNumber::No do
   subject(:civil_number) { CivilNumber::No.new(number) }
+  before do
+    civil_number.send(:parsed_civil_number)
+  end
 
   describe '#validate' do
     let(:number) { '10010100173' }
@@ -55,46 +58,22 @@ describe CivilNumber::No do
     end
   end
 
-  describe '#check_date' do
-    let(:number) { '10010100176' }
-    context 'validate date' do
-      it { expect(civil_number.send(:check_date)).to eq(true) }
-    end
-
-    context 'validate D-number date' do
-      let(:number) { '10014100176' }
-      it { expect(civil_number.send(:check_date)).to eq(true) }
-    end
-  end
-
-  describe '#base_year' do
+  describe '#year' do
     context 'when receive valid value' do
       let(:number) { '10014100176' }
-      it { expect(civil_number.send(:base_year, individual_number: 0o0, gender: 1)).to eq(1900) }
+      it { expect(civil_number.send(:year)).to eq(1941) }
     end
 
     context 'when receive invalid value' do
-      let(:number) { '10014100176' }
-      it { expect(civil_number.send(:base_year, individual_number: 100, gender: 1)).to eq(0) }
+      let(:number) { '10014A00176' }
+      it { expect(civil_number.send(:year)).to eq(0) }
     end
   end
 
-  describe '#get_gender' do
+  describe '#gender' do
     context 'when receive odd value' do
       let(:number) { '10014100176' }
-      it { expect(civil_number.send(:get_gender, 2)).to eq(:female) }
-    end
-  end
-
-  describe '#number' do
-    context 'number without divider' do
-      let(:number) { '10014100176' }
-      it { expect(civil_number.send(:number)).to eq('10014100176') }
-    end
-
-    context 'number with divider' do
-      let(:number) { '100141+00176' }
-      it { expect(civil_number.send(:number)).to eq('10014100176') }
+      it { expect(civil_number.send(:gender)).to eq(:male) }
     end
   end
 end

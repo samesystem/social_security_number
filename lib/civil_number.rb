@@ -1,4 +1,4 @@
-require "civil_number/version"
+require 'civil_number/version'
 
 module CivilNumber
   autoload :Validator, 'civil_number/validator'

@@ -13,7 +13,7 @@ module CivilNumber
 
       NINO_REGEXP = /^(?<first_letter>[A-CEGHJ-PRSTW-Z])[- ]?(?<second_letter>[A-CEGHJ-NPRSTW-Z])[- ]?(?<first_numbers>\d{2})[- ]?(?<second_numbers>\d{2})[- ]?(?<last_numbers>\d{2})[- ]?(?<last_simbols>[A-D\s])$/
       NHS_REGEXP = /^(?<first_number>[0-9]{3})[- ]?(?<second_number>[0-9]{3})[- ]?(?<last_number>[0-9]{4})$/
-      CHI_REGEXP = /^(?<day>\d{2})(?<month>\d{2})(?<year>\d{2})[- ]?(?<last_number>[0-9]{4})$/
+      CHI_REGEXP = /^#{SHORT_DATE2_REGEXP}[- ]?(?<last_number>[0-9]{4})$/
 
       def validate_formats
         check_nino_format || check_by_regexp(NHS_REGEXP) || check_by_regexp(CHI_REGEXP)

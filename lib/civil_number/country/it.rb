@@ -8,25 +8,17 @@ module CivilNumber
                end
     end
 
-    private
-
-    REGEXP = /^(?<name>[A-Z]{6})-?(?<year>[\dL-V]{2})(?<month>[ABCDEHLMPRST])(?<day>[\dL-V]{2})(?<individual>[A-Z][\dL-V]{3})(?<individual2>[A-Z]{1})$/
-
-    def get_month(month)
+    def month
       months = ['A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'P', 'R', 'S', 'T']
-      months.index(month).to_i + 1
+      @month = months.index(@parsed_civil_number[:month]).to_i + 1
     end
 
-    def get_day(day)
-      day > 40 ? day - 40 : day
+    def day
+      d = @parsed_civil_number[:day].to_i
+      @day = d >= 40 ? d - 40 : d
     end
 
-    def base_year(year)
-      current_year = Time.now.year % 100
-      offset_year = year[:year].to_i
-      offset_year += 100 if year[:year] and offset_year < current_year
-      1900 + offset_year
-    end
+    REGEXP = /^(?<name>[A-Z]{6})-?(?<year>[\dL-V]{2})(?<month>[ABCDEHLMPRST])(?<day>[\dL-V]{2})(?<indv>[A-Z][\dL-V]{3})(?<indv2>[A-Z]{1})$/
 
   end
 end

@@ -77,7 +77,5 @@ describe CivilNumber::De do
       let(:number) { '12335679998' }
       it { expect(civil_number.send(:check_control_sum)).to eq(false) }
     end
-
-
   end
 end

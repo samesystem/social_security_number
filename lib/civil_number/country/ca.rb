@@ -1,7 +1,6 @@
 module CivilNumber
   class Ca < Country
-    #https://en.wikipedia.org/wiki/Social_Insurance_Number
-
+    # https://en.wikipedia.org/wiki/Social_Insurance_Number
     def validate
       @error = if !check_by_regexp(REGEXP)
                  'bad number format'
@@ -14,16 +13,16 @@ module CivilNumber
 
     MODULUS = 10
 
-    CONTROLCIPHERS = [1,2,1,2,1,2,1,2,1].freeze
+    CONTROLCIPHERS = [1, 2, 1, 2, 1, 2, 1, 2, 1].freeze
 
     REGEXP = /^(?<firs_number>\d{3})[- .]?(?<second_number>\d{3})[- .]?(?<last_number>\d{3})$/
 
     def check_number
-      count_number_sum % 10 == 0
+      (count_number_sum % 10).zero?
     end
 
     def count_number_sum
-      digits = get_digit_number.split(//)
+      digits = digit_number.split(//)
       new_number = []
       sum = 0
       digits.each_with_index do |digit, i|

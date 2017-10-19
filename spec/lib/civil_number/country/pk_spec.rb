@@ -29,11 +29,4 @@ describe CivilNumber::Pk do
       it { is_expected.to eq('bad number format') }
     end
   end
-
-  describe '#get_gender' do
-    context 'when receive odd value' do
-      let(:number) {'1210112345672'}
-      it { expect(civil_number.send(:get_gender,2)).to eq(:female)}
-    end
-  end
 end

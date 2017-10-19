@@ -8,29 +8,26 @@ module CivilNumber
                  'bad number format'
                elsif !check_control_sum
                  'number control sum invalid'
-      end
+               end
     end
 
     private
 
     MODULUS = 10
 
-    CONTROLCIPHERS = [1,3,1,3,1,3,1,3,1,3,1,3].freeze
+    CONTROLCIPHERS = [1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3].freeze
 
-    REGEXP = /^(?<adress>756)[.]?(?<individual1>\d{4})[.]?(?<individual2>\d{4})[.]?(?<individual3>\d{1})(?<control>\d{1})$/
+    INV_REGEXP = /(?<indv1>\d{4})[.]?(?<indv2>\d{4})[.]?(?<indv3>\d{1})/
+    REGEXP = /^(?<adress>756)[.]?#{INV_REGEXP}(?<control>\d{1})$/
 
     def check_control_sum
       count_last_number.to_i == @control_number.to_i
     end
 
     def count_last_number
-      sum = calc_sum(number[0..11], CONTROLCIPHERS)
+      sum = calc_sum(digit_number[0..11], CONTROLCIPHERS)
       modus = sum % MODULUS
       modus > 0 ? 10 - modus : modus
-    end
-
-    def number
-      @civil_number.gsub('.', '')
     end
   end
 end

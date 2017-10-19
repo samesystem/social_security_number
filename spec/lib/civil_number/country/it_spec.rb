@@ -35,15 +35,15 @@ describe CivilNumber::It do
     end
   end
 
-  describe '#base_year' do
+  describe '#year' do
     context 'when receive valid value' do
-      let(:number) { 'AAAAAA97T55A111A' }
-      it { expect(civil_number.send(:base_year, year: 2)).to eq(2002) }
+      let(:number) { 'AAAAAA02T55A111A' }
+      it { expect(civil_number.send(:year)).to eq(2002) }
     end
 
     context 'when receive invalid value' do
       let(:number) { 'AAAAAA97T55A111A' }
-      it { expect(civil_number.send(:base_year, year: 40)).to eq(1940) }
+      it { expect(civil_number.send(:year)).to eq(1997) }
     end
   end
 end

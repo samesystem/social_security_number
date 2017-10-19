@@ -38,37 +38,24 @@ describe CivilNumber::Dk do
       let(:number) { '311277-0005' }
       it { is_expected.to eq('control code invalid') }
     end
-
   end
 
-  describe '#base_year' do
+  describe '#year' do
     context 'when receive valid value' do
-      let(:number) { '10014100176' }
-      it { expect(civil_number.send(:base_year, year: 2)).to eq(2002) }
+      let(:number) { '1004022990' }
+      it { expect(civil_number.send(:year)).to eq(2002) }
     end
 
     context 'when receive invalid value' do
-      let(:number) { '10014100176' }
-      it { expect(civil_number.send(:base_year, year: 40)).to eq(1940) }
+      let(:number) { '1004402990' }
+      it { expect(civil_number.send(:year)).to eq(1940) }
     end
   end
 
-  describe '#get_gender' do
+  describe '#gender' do
     context 'when receive odd value' do
-      let(:number) { '10014100176' }
-      it { expect(civil_number.send(:get_gender, 2)).to eq(:female) }
-    end
-  end
-
-  describe '#number' do
-    context 'number without divider' do
-      let(:number) { '10014100176' }
-      it { expect(civil_number.send(:number)).to eq('10014100176') }
-    end
-
-    context 'number with divider' do
-      let(:number) { '100141+00176' }
-      it { expect(civil_number.send(:number)).to eq('10014100176') }
+      let(:number) { '1004402990' }
+      it { expect(civil_number.send(:gender)).to eq(:female) }
     end
   end
 end

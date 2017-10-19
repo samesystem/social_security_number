@@ -4,19 +4,19 @@ describe CivilNumber::Es do
   subject(:civil_number) { CivilNumber::Es.new(number) }
 
   describe '#validate' do
-    let(:number) {'11111111H'}
+    let(:number) { '11111111H' }
 
     context 'when DNI number is valid' do
       it { is_expected.to be_valid }
     end
 
     context 'when NIE number is valid' do
-      let(:number) {'Y1111111H'}
+      let(:number) { 'Y1111111H' }
       it { is_expected.to be_valid }
     end
 
     context 'when number contains not digits' do
-      let(:number) {'Y1111Z11H'}
+      let(:number) { 'Y1111Z11H' }
       it { is_expected.not_to be_valid }
     end
   end
@@ -25,39 +25,39 @@ describe CivilNumber::Es do
     subject(:error) { civil_number.tap(&:valid?).error }
 
     context 'when number contains digit as last simbol' do
-      let(:number) {'Y1111Z119'}
+      let(:number) { 'Y1111Z119' }
       it { is_expected.to eq('bad number format') }
     end
 
     context 'when number length is invalid' do
-      let(:number) {'Y1111Z11AAAA'}
+      let(:number) { 'Y1111Z11AAAA' }
       it { is_expected.to eq('bad number format') }
     end
   end
 
   describe '#dni_validation' do
     context 'when number valid' do
-      let(:number) {'11111111H'}
-      it { expect(civil_number.send(:dni_validation)).to eq(true)}
+      let(:number) { '11111111H' }
+      it { expect(civil_number.send(:dni_validation)).to eq(true) }
     end
   end
 
   describe '#nie_validation' do
     context 'when number valid' do
-      let(:number) {'Y1111111H'}
-      it { expect(civil_number.send(:nie_validation)).to eq(true)}
+      let(:number) { 'Y1111111H' }
+      it { expect(civil_number.send(:nie_validation)).to eq(true) }
     end
   end
 
   describe '#count_last_simbol' do
     context 'when control number coincide with count number' do
-      let(:number) {'11111111H'}
-      it { expect(civil_number.send(:count_last_simbol, '11111111')).to eq('H')}
+      let(:number) { '11111111H' }
+      it { expect(civil_number.send(:count_last_simbol, '11111111')).to eq('H') }
     end
 
     context 'when control number not coincide with count number' do
-      let(:number) {'01111111H'}
-      it { expect(civil_number.send(:count_last_simbol, '11111111')).to eq('H')}
+      let(:number) { '01111111H' }
+      it { expect(civil_number.send(:count_last_simbol, '11111111')).to eq('H') }
     end
   end
 end
