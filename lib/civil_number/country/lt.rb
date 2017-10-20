@@ -4,9 +4,9 @@ module CivilNumber
       @error = if !check_digits
                  'it is not number'
                elsif !check_length(11)
-                 'number shuld be length of 11'
+                 'number should be length of 11'
                elsif @parsed_civil_number[:gender].to_i > 6
-                 'gender number is not recognaized'
+                 'gender number is not recognized'
                elsif !birth_date
                  'number birth date is invalid'
                elsif !check_control_sum

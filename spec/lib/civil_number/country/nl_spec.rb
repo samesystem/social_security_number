@@ -26,7 +26,7 @@ describe CivilNumber::Nl do
 
     context 'when number length is invalid' do
       let(:number) { '1234567299988' }
-      it { is_expected.to eq('number shuld be length of 9 or 8') }
+      it { is_expected.to eq('number should be length of 9 or 8') }
     end
   end
 

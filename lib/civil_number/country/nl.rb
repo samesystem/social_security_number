@@ -4,7 +4,7 @@ module CivilNumber
       @error = if !check_digits
                  'it is not number'
                elsif !check_length(CONTROLCIPHERS.size)
-                 'number shuld be length of 9 or 8'
+                 'number should be length of 9 or 8'
                elsif !check_control_sum
                  'number control sum invalid'
                end

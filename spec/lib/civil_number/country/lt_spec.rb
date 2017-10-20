@@ -26,12 +26,12 @@ describe CivilNumber::Lt do
 
     context 'when number length is invalid' do
       let(:number) { '33309240' }
-      it { is_expected.to eq('number shuld be length of 11') }
+      it { is_expected.to eq('number should be length of 11') }
     end
 
     context 'when number contains invalid gender number' do
       let(:number) { '88888840064' }
-      it { is_expected.to eq('gender number is not recognaized') }
+      it { is_expected.to eq('gender number is not recognized') }
     end
 
     context 'when number contains invalid gender number' do

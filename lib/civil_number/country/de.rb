@@ -6,7 +6,7 @@ module CivilNumber
       @error = if !check_digits
                  'it is not number'
                elsif !check_length(11)
-                 'number shuld be length of 11'
+                 'number should be length of 11'
                elsif @civil_number[0].to_i.zero?
                  'first number is invalid'
                # elsif !check_digits_apperings

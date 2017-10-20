@@ -26,7 +26,7 @@ describe CivilNumber::De do
 
     context 'when number length is invalid' do
       let(:number) { '4456713920799' }
-      it { is_expected.to eq('number shuld be length of 11') }
+      it { is_expected.to eq('number should be length of 11') }
     end
 
     context 'when number has bad control number' do
