@@ -36,7 +36,7 @@ describe CivilNumber::Uk do
 
     context 'when number length is invalid' do
       let(:number) { '9902221111' }
-      it { is_expected.to eq('bad DNI, CHI, NIE number') }
+      it { is_expected.to eq('bad CHI, NHS number') }
     end
   end
 
