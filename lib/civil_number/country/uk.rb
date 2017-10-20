@@ -5,7 +5,7 @@ module CivilNumber
         @error = if !validate_formats
                    'bad number format'
                  elsif check_length(10) && !(nhs_validation || chi_validation)
-                   'bad nhs or chi number'
+                   'bad DNI, CHI, NIE number'
                  end
       end
 

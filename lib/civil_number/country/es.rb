@@ -4,7 +4,7 @@ module CivilNumber
         @error = if !validate_formats
                    'bad number format'
                  elsif !dni_validation && !nie_validation
-                   'bad dni or nie number'
+                   'bad DNI, NIE number'
                  end
       end
 
