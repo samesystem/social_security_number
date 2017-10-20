@@ -11,13 +11,13 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{It provides validators for national identification numbers.}
   spec.description   = %q{It provides validators for national identification numbers. Currently the following countries are supported: Belgium, Canada, China, Czech Republic, Denmark, Germany, Finland, France, Iceland, Ireland, Italy, Lithuania, Mexico, Netherlands, Norway, Pakistan, Spain, Sweden, Switzerland, United Kingdom, United States }
-  spec.homepage      = "https://github.com/samesystem/civil_number"
+  spec.homepage      = "https://gitlab.samesystem.net/gem/civil_number"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata["allowed_push_host"] = "https://gems1.samesystem.net"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
