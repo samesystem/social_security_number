@@ -1,0 +1,13 @@
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - make
+    - make release
+  artifacts:
+    paths:
+     - "*.gem"
+  tags:
+     - gem
