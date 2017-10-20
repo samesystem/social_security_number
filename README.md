@@ -59,7 +59,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Don't forget to add tests and run rspec before creating a pull request :)
 
-See all contributors on https://github.com/TankiaiTaskuota/civil_number/graphs/contributors .
+See all contributors on https://github.com/samesystem/civil_number/graphs/contributors .
 
 ## License
 
@@ -67,4 +67,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Code of Conduct
 
-Everyone interacting in the CivilNumber project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/TankiaiTaskuota/civil_number/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the CivilNumber project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/samesystem/civil_number/blob/master/CODE_OF_CONDUCT.md).

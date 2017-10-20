@@ -4,6 +4,10 @@ module CivilNumber
 
     attr_accessor :civil_number, :birth_date, :individual, :control_number, :error
 
+    DATE_REGEXP = /(?<year>\d{4})(?<month>\d{2})(?<day>\d{2})/
+    SHORT_DATE2_REGEXP = /(?<day>\d{2})(?<month>\d{2})(?<year>\d{2})/
+    SHORT_DATE_REGEXP = /(?<year>\d{2})(?<month>\d{2})(?<day>\d{2})/
+    
     def initialize(civil_number)
       @civil_number = civil_number.to_s.upcase
       values_from_number if self.class.const_defined?('REGEXP')
@@ -14,10 +18,6 @@ module CivilNumber
       validate
       @error.nil?
     end
-
-    DATE_REGEXP = /(?<year>\d{4})(?<month>\d{2})(?<day>\d{2})/
-    SHORT_DATE2_REGEXP = /(?<day>\d{2})(?<month>\d{2})(?<year>\d{2})/
-    SHORT_DATE_REGEXP = /(?<year>\d{2})(?<month>\d{2})(?<day>\d{2})/
 
     def parsed_civil_number
       @parsed_civil_number ||= @civil_number.match(self.class::REGEXP)

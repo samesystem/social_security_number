@@ -1,4 +1,6 @@
 module CivilNumber
+  # CivilNumber::De validates Germany Steuer-IdNr
+  # https://en.wikipedia.org/wiki/National_identification_number#Germany
   class De < Country
     def validate
       @error = if !check_digits

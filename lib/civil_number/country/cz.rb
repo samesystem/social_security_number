@@ -1,8 +1,9 @@
 module CivilNumber
+  # CivilNumber::Cz validates Czech birth numbers
+  # https://en.wikipedia.org/wiki/National_identification_number#Czech_Republic_and_Slovakia
+  # https://www.npmjs.com/package/rodnecislo
+  # http://lorenc.info/3MA381/overeni-spravnosti-rodneho-cisla.htm
   class Cz < Country
-    # https://en.wikipedia.org/wiki/National_identification_number#Czech_Republic_and_Slovakia
-    # https://www.npmjs.com/package/rodnecislo
-    # http://lorenc.info/3MA381/overeni-spravnosti-rodneho-cisla.htm
     def validate
       @error = if !check_by_regexp(REGEXP)
                  'bad number format'

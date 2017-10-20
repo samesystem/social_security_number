@@ -1,4 +1,6 @@
 module CivilNumber
+  # CivilNumber::Cn validates Chinese Resident Identity Card Number
+  # https://en.wikipedia.org/wiki/Resident_Identity_Card#Identity_card_number
   class Cn < Country
     def validate
       @error = if !check_digits

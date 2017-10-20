@@ -1,8 +1,9 @@
 module CivilNumber
+  # CivilNumber::Ch validates Swiss social security numbers
+  # https://en.wikipedia.org/wiki/National_identification_number#Switzerland
+  # https://de.wikipedia.org/wiki/Sozialversicherungsnummer#Versichertennummer
+  # http://www.sozialversicherungsnummer.ch/aufbau-neu.htm
   class Ch < Country
-    # https://en.wikipedia.org/wiki/National_identification_number#Switzerland
-    # https://de.wikipedia.org/wiki/Sozialversicherungsnummer#Versichertennummer
-    # http://www.sozialversicherungsnummer.ch/aufbau-neu.htm
     def validate
       @error = if !check_by_regexp(REGEXP)
                  'bad number format'
