@@ -14,7 +14,7 @@ module CivilNumber
 
     def year
       if @parsed_civil_number
-        year_value = (@parsed_civil_number[:indv].to_i * 10 + @parsed_civil_number[:gender].to_i).to_i
+        year_value = (@parsed_civil_number[:indv].to_i * 10 + @parsed_civil_number[:gnd].to_i).to_i
         base = case year_value
                when 000..499 then 1900
                when 500..899 then @parsed_civil_number[:year].to_i >= 54 ? 1800 : 2000
@@ -40,7 +40,7 @@ module CivilNumber
     CONTROLCIPHERS_1 = [3, 7, 6, 1, 8, 9, 4, 5, 2].freeze
     CONTROLCIPHERS_2 = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2].freeze
 
-    REGEXP = /^#{SHORT_DATE2_REGEXP}(?<divider>[\-\+]{0,1})(?<indv>\d{2})(?<gender>\d{1})(?<control>\d{2})$/
+    REGEXP = /^#{SHORT_DATE2_REGEXP}[-+]?(?<indv>\d{2})(?<gnd>\d{1})(?<ctrl>\d{2})$/
 
     def check_control_digit_1
       ctrl = 11 - calc_sum(digit_number[0, 9], CONTROLCIPHERS_1) % MODULUS

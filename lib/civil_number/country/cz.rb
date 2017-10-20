@@ -31,7 +31,8 @@ module CivilNumber
 
     MODULUS = 11
 
-    REGEXP = %r{^(?<year>\d{2})[- .]?(?<month>\d{2})[- .]?(?<day>\d{2})[- .\/]?(?<indv>\d{3})[- .]?(?<control>\d{1})?$}
+    DATE_REGEXP = /(?<year>\d{2})[- .]?(?<month>\d{2})[- .]?(?<day>\d{2})/
+    REGEXP = %r{^#{DATE_REGEXP}[- .\/]?(?<indv>\d{3})[- .]?(?<ctrl>\d{1})?$}
 
     def check_control_sum
       if @control_number.to_s != ''

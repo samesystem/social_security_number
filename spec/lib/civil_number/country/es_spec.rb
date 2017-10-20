@@ -50,14 +50,9 @@ describe CivilNumber::Es do
   end
 
   describe '#count_last_simbol' do
-    context 'when control number coincide with count number' do
-      let(:number) { '11111111H' }
-      it { expect(civil_number.send(:count_last_simbol, '11111111')).to eq('H') }
-    end
-
-    context 'when control number not coincide with count number' do
-      let(:number) { '01111111H' }
-      it { expect(civil_number.send(:count_last_simbol, '11111111')).to eq('H') }
+    let(:number) { '11111111H' }
+    it 'when control number coincide with count number' do
+      expect(civil_number.send(:count_last_simbol, '11111111')).to eq('H')
     end
   end
 end

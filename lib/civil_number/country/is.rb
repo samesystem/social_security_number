@@ -21,7 +21,8 @@ module CivilNumber
 
     CONTROLCIPHERS = [3, 2, 7, 6, 5, 4, 3, 2].freeze
 
-    REGEXP = /^(?<day>[01234567]\d)(?<month>\d{2})(?<year>\d{2})[ . -]?(?<indv>\d{2})(?<control>\d{1})(?<century>[09])$/
+    DATE_REGEXP = /(?<day>[01234567]\d)(?<month>\d{2})(?<year>\d{2})/
+    REGEXP = /^#{DATE_REGEXP}[ .-]?(?<indv>\d{2})(?<ctrl>\d{1})(?<cntr>[09])$/
 
 
     def check_control_sum

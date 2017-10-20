@@ -28,7 +28,8 @@ module CivilNumber
 
     CONTROLCIPHERS = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1].freeze
 
-    REGEXP = /^(?<adress>\d{6})[- .]?(?<year>\d{4})[- .]?(?<month>\d{2})[- .]?(?<day>\d{2})[- .]?(?<indv>\d{3})[- .]?(?<control>\d{1})$/
+    DATE_REGEXP = /(?<year>\d{4})[- .]?(?<month>\d{2})[- .]?(?<day>\d{2})/
+    REGEXP = /^(?<adr>\d{6})[- .]?#{DATE_REGEXP}[- .]?(?<indv>\d{3})[- .]?(?<ctrl>\d{1})$/
 
     def check_control_sum
       count_last_number.to_i == @control_number.to_i

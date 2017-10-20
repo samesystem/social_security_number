@@ -16,7 +16,7 @@ module CivilNumber
 
     CONTROLCIPHERS = [8, 7, 6, 5, 4, 3, 2].freeze
 
-    REGEXP = /^(?<indv>\d{7})[- .]?(?<control>[A-W])[AHWTX]?$/
+    REGEXP = /^(?<indv>\d{7})[- .]?(?<ctrl>[A-W])[AHWTX]?$/
 
     def check_control_simbol
       count_last_simbol.to_s == @control_number.to_s
@@ -25,7 +25,11 @@ module CivilNumber
     def count_last_simbol
       sum = calc_sum(@individual, CONTROLCIPHERS)
       alfabet = %w[W A B C D E F G H I J K L M N O P Q R S U V]
-      value = @civil_number[-1] != @control_number.to_s ? alfabet.index(@civil_number[-1]).to_i : 0
+      value = if @civil_number[-1] != @control_number.to_s
+                alfabet.index(@civil_number[-1]).to_i
+              else
+                0
+              end
       last_simbol = (sum + (value * 9)) % MODULUS
       'WABCDEFGHIJKLMNOPQRSTUV'[last_simbol]
     end

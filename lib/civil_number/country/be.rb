@@ -20,7 +20,7 @@ module CivilNumber
 
     private
 
-    REGEXP = /^(?<year>\d{2})[- .]?(?<month>\d{2})[- .]?(?<day>\d{2})[- .]?(?<indv>\d{3})[- .]?(?<control>\d{2})$/
+    REGEXP = /^(?<year>\d{2})[- .]?(?<month>\d{2})[- .]?(?<day>\d{2})[- .]?(?<indv>\d{3})[- .]?(?<ctrl>\d{2})$/
 
     def check_control_sum
       count_last_number == @control_number.to_i || count_last_number('2') == @control_number.to_i

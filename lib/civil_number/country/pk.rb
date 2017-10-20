@@ -6,6 +6,6 @@ module CivilNumber
                end
     end
 
-    REGEXP = /^(?<location>\d{5})-?(?<family_number>\d{7})-?(?<gender>\d{1})$/
+    REGEXP = /^(?<location>\d{5})-?(?<family_number>\d{7})-?(?<gnd>\d{1})$/
   end
 end

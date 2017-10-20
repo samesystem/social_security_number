@@ -20,7 +20,7 @@ module CivilNumber
 
     CONTROLCIPHERS = [1, 2, 1, 2, 1, 2, 1, 2, 1].freeze
 
-    REGEXP = /^(?<firs_number>\d{3})[- .]?(?<second_number>\d{3})[- .]?(?<last_number>\d{3})$/
+    REGEXP = /^(?<f_nmr>\d{3})[- .]?(?<s_nmr>\d{3})[- .]?(?<l_nmr>\d{3})$/
 
     def check_number
       (count_number_sum % 10).zero?
@@ -32,11 +32,11 @@ module CivilNumber
       sum = 0
       digits.each_with_index do |digit, i|
         n = digit.to_i * CONTROLCIPHERS[i].to_i
-        if n > 9
-          new_number << n - 9
-        else
-          new_number << n
-        end
+        new_number << if n > 9
+                        n - 9
+                      else
+                        n
+                      end
       end
 
       new_number.each do |digit|

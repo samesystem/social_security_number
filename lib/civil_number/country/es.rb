@@ -10,8 +10,8 @@ module CivilNumber
 
       private
 
-      DNI_REGEXP = /^(?<individual>\d{8})[- ]?(?<control>[A-Z])$/
-      NIE_REGEXP = /^(?<first_letter>[XYZ])[- ]?(?<individual>\d{7})[- ]?(?<control>[A-Z])$/
+      DNI_REGEXP = /^(?<individual>\d{8})[- ]?(?<ctrl>[A-Z])$/
+      NIE_REGEXP = /^(?<first_letter>[XYZ])[- ]?(?<individual>\d{7})[- ]?(?<ctrl>[A-Z])$/
 
       def validate_formats
         check_by_regexp(DNI_REGEXP) || check_by_regexp(NIE_REGEXP)
@@ -22,7 +22,7 @@ module CivilNumber
       end
 
       def nie_validation
-        remap = ['X', 'Y', 'Z']
+        remap = %W[X Y Z]
         number = "#{remap.index(@civil_number[0])}#{@civil_number[1..7]}"
         count_last_simbol(number) == @civil_number[-1]
       end

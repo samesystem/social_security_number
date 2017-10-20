@@ -14,7 +14,7 @@ module CivilNumber
     end
 
     def gender
-      @gender ||= @parsed_civil_number[:gender].to_s == 'H' ? :male : :female
+      @gender ||= @parsed_civil_number[:gnd].to_s == 'H' ? :male : :female
     end
 
     private
@@ -28,8 +28,9 @@ module CivilNumber
     # the first internal consonants of surnames and names
     FIC = /(?<fic>[B-DF-HJ-NP-TV-Z]{3})/
     FEDERAL = /(?<federal>(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE))/
+    SURNAME = /(?<surname>[AEIOUX])/
 
-    REGEXP = /^#{LINIT}(?<surname>[AEIOUX])#{LINIT_2}[ .-]?#{SHORT_DATE_REGEXP}[ .-]?(?<gender>[HM]{1})[ .-]?#{FEDERAL}[ .-]?#{FIC}[ .-]?(?<homoclave>[A-Z\d])[ .-]?(?<control>\d{1})$/
+    REGEXP = /^#{LINIT}#{SURNAME}#{LINIT_2}[ .-]?#{SHORT_DATE_REGEXP}[ .-]?(?<gnd>[HM]{1})[ .-]?#{FEDERAL}[ .-]?#{FIC}[ .-]?(?<homoclave>[A-Z\d])[ .-]?(?<ctrl>\d{1})$/
 
     def check_control_sum
       count_last_number.to_i == @control_number.to_i

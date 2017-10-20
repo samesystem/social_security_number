@@ -12,7 +12,7 @@ module CivilNumber
 
     private
 
-    REGEXP = /^#{SHORT_DATE2_REGEXP}(?<divider>[\-]{0,1})(?<indv>\d{3})(?<gender>\d{1})$/
+    REGEXP = /^#{SHORT_DATE2_REGEXP}(?<divider>[\-]{0,1})(?<indv>\d{3})(?<gnd>\d{1})$/
 
     MODULUS_1968 = 11
     MODULUS_2007 = 6

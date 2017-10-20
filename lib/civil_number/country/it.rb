@@ -9,7 +9,7 @@ module CivilNumber
     end
 
     def month
-      months = ['A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'P', 'R', 'S', 'T']
+      months = %w[A B C D E H L M P R S T]
       @month = months.index(@parsed_civil_number[:month]).to_i + 1
     end
 
@@ -18,7 +18,8 @@ module CivilNumber
       @day = d >= 40 ? d - 40 : d
     end
 
-    REGEXP = /^(?<name>[A-Z]{6})-?(?<year>[\dL-V]{2})(?<month>[ABCDEHLMPRST])(?<day>[\dL-V]{2})(?<indv>[A-Z][\dL-V]{3})(?<indv2>[A-Z]{1})$/
-
+    DATE_REGEXP = /(?<year>[\dL-V]{2})(?<month>[ABCDEHLMPRST])(?<day>[\dL-V]{2})/
+    INVD_REGEXP = /(?<indv>[A-Z][\dL-V]{3})(?<indv2>[A-Z]{1})/
+    REGEXP = /^(?<nm>[A-Z]{6})-?#{DATE_REGEXP}#{INVD_REGEXP}$/
   end
 end

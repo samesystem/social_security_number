@@ -30,8 +30,8 @@ module CivilNumber
     end
 
     def gender
-      return unless @parsed_civil_number.names.include?('gender')
-      @gender ||= @parsed_civil_number[:gender].to_i.odd? ? :male : :female
+      return unless @parsed_civil_number.names.include?('gnd')
+      @gender ||= @parsed_civil_number[:gnd].to_i.odd? ? :male : :female
     end
 
     private
@@ -95,7 +95,7 @@ module CivilNumber
       parsed_civil_number
       return unless @parsed_civil_number
       @individual = value_from_parsed_civil_number('indv')
-      @control_number = value_from_parsed_civil_number('control')
+      @control_number = value_from_parsed_civil_number('ctrl')
       gender
       date
     end

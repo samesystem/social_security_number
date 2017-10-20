@@ -19,7 +19,7 @@ module CivilNumber
     CONTROLCIPHERS = [1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3].freeze
 
     INV_REGEXP = /(?<indv1>\d{4})[.]?(?<indv2>\d{4})[.]?(?<indv3>\d{1})/
-    REGEXP = /^(?<adress>756)[.]?#{INV_REGEXP}(?<control>\d{1})$/
+    REGEXP = /^(?<adress>756)[.]?#{INV_REGEXP}(?<ctrl>\d{1})$/
 
     def check_control_sum
       count_last_number.to_i == @control_number.to_i

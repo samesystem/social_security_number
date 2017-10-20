@@ -5,14 +5,14 @@ module CivilNumber
                  'bad number format'
                elsif !check_control_simbol
                  'number control sum invalid'
-      end
+               end
     end
 
     private
 
     MODULUS = 31
 
-    CONTROL_REGEXP = /(?<control>[0-9ABCDEFHJKLMNPRSTUVWXY])/
+    CONTROL_REGEXP = /(?<ctrl>[0-9ABCDEFHJKLMNPRSTUVWXY])/
     REGEXP = /^#{SHORT_DATE2_REGEXP}(?<century>[-+A])(?<indv>\d{3})#{CONTROL_REGEXP}$/
 
     def check_control_simbol
