@@ -1,6 +1,6 @@
 module CivilNumber
   # CivilNumber::Be validates Belgium National Register Number
-  # https://en.wikipedia.org/wiki/National_identification_number#Norway
+  # https://en.wikipedia.org/wiki/National_identification_number#Belgium
   class Be < Country
     def validate
       @error = if !check_by_regexp(REGEXP)
