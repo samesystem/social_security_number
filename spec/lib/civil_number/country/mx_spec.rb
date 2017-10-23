@@ -52,7 +52,7 @@ describe CivilNumber::Mx do
     end
   end
 
-  describe '#base_year' do
+  describe '#year' do
     context 'when receive valid value' do
       let(:number) { 'GOMJ020711MTSMRS02' }
       it { expect(civil_number.send(:year)).to eq(2002) }
@@ -64,10 +64,15 @@ describe CivilNumber::Mx do
     end
   end
 
-  describe '#get_gender' do
+  describe '#gender' do
     context 'when receive famale value' do
       let(:number) { 'GOMJ910711MTSMRS06' }
       it { expect(civil_number.send(:gender)).to eq(:female) }
+    end
+
+    context 'when receive male value' do
+      let(:number) { 'GOMJ910711HTSMRS06' }
+      it { expect(civil_number.send(:gender)).to eq(:male) }
     end
   end
 end

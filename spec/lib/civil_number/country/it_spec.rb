@@ -46,4 +46,18 @@ describe CivilNumber::It do
       it { expect(civil_number.send(:year)).to eq(1997) }
     end
   end
+
+  describe '#month' do
+    context 'when december value' do
+      let(:number) { 'AAAAAA97T55A111A' }
+      it { expect(civil_number.send(:month)).to eq(12) }
+    end
+  end
+
+  describe '#day' do
+    context 'when simple value' do
+      let(:number) { 'AAAAAA97T55A111A' }
+      it { expect(civil_number.send(:day)).to eq(15) }
+    end
+  end
 end

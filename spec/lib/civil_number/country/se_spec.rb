@@ -56,6 +56,21 @@ describe CivilNumber::Se do
     context 'when receive valid value' do
       let(:number) { '19391030-4296' }
       it { expect(civil_number.send(:year)).to eq(1939) }
+
+      context 'when civil number is from 20th century' do
+        let(:number) { '20151030-4296' }
+        it { expect(civil_number.send(:year)).to eq(2015) }
+      end
+
+      context 'when civil number is from 20th century' do
+        let(:number) { '19451030-4296' }
+        it { expect(civil_number.send(:year)).to eq(1945) }
+      end
+
+      context 'when civil number is from 19th century' do
+        let(:number) { '18881030-4296' }
+        it { expect(civil_number.send(:year)).to eq(1888) }
+      end
     end
 
     context 'when receive invalid value' do

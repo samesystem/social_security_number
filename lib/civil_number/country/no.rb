@@ -29,8 +29,7 @@ module CivilNumber
     end
 
     def day
-      d = @parsed_civil_number[:day].to_i
-      @day = d >= 40 ? d - 40 : d
+      @day = @parsed_civil_number[:day].to_i % 40
     end
 
     private

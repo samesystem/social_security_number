@@ -19,12 +19,7 @@ module CivilNumber
     end
 
     def month
-      m = @parsed_civil_number[:month]
-      @month = if m.to_i < 33
-                 m.to_i > 12 ? m.to_i - 20 : m.to_i
-               else
-                 m.to_i > 62 ? m.to_i - 70 : m.to_i - 50
-               end
+      @month = (@parsed_civil_number[:month].to_i % 50) % 20
     end
 
     private

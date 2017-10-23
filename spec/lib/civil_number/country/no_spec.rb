@@ -60,6 +60,23 @@ describe CivilNumber::No do
 
   describe '#year' do
     context 'when receive valid value' do
+      context 'when civil number is from 21st century' do
+        let(:number) { '290200-91020' }
+        it { expect(civil_number.send(:year)).to eq(2000) }
+      end
+
+      context 'when civil number is from 20th century' do
+        let(:number) { '020945-90520' }
+        it { expect(civil_number.send(:year)).to eq(1945) }
+      end
+
+      context 'when civil number is from 19th century' do
+        let(:number) { '050588-70120' }
+        it { expect(civil_number.send(:year)).to eq(1888) }
+      end
+    end
+
+    context 'when receive valid value' do
       let(:number) { '10014100176' }
       it { expect(civil_number.send(:year)).to eq(1941) }
     end
@@ -67,6 +84,18 @@ describe CivilNumber::No do
     context 'when receive invalid value' do
       let(:number) { '10014A00176' }
       it { expect(civil_number.send(:year)).to eq(0) }
+    end
+  end
+
+  describe '#day' do
+    context 'when simple value' do
+      let(:number) { '10014100176' }
+      it { expect(civil_number.send(:day)).to eq(10) }
+    end
+
+    context 'when receive extended value' do
+      let(:number) { '50014100176' }
+      it { expect(civil_number.send(:day)).to eq(10) }
     end
   end
 

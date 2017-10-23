@@ -77,7 +77,7 @@ describe CivilNumber::Lt do
     end
   end
 
-  describe '#get_gender' do
+  describe '#gender' do
     context 'when receive odd value' do
       let(:number) { '43309240064' }
       it { expect(civil_number.send(:gender)).to eq(:female) }

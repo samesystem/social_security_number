@@ -42,13 +42,15 @@ describe CivilNumber::Dk do
 
   describe '#year' do
     context 'when receive valid value' do
-      let(:number) { '1004022990' }
-      it { expect(civil_number.send(:year)).to eq(2002) }
-    end
+      context 'when civil number is from 21st century' do
+        let(:number) { '1004022990' }
+        it { expect(civil_number.send(:year)).to eq(2002) }
+      end
 
-    context 'when receive invalid value' do
-      let(:number) { '1004402990' }
-      it { expect(civil_number.send(:year)).to eq(1940) }
+      context 'when civil number is from 20th century' do
+        let(:number) { '1004402990' }
+        it { expect(civil_number.send(:year)).to eq(1940) }
+      end
     end
   end
 

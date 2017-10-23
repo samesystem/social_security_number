@@ -68,4 +68,16 @@ describe CivilNumber::Is do
       it { expect(civil_number.send(:year)).to eq(1940) }
     end
   end
+
+  describe '#day' do
+    context 'when simple value' do
+      let(:number) { '120102-3329' }
+      it { expect(civil_number.send(:day)).to eq(12) }
+    end
+
+    context 'when receive extended value' do
+      let(:number) { '520140-3329' }
+      it { expect(civil_number.send(:day)).to eq(12) }
+    end
+  end
 end
