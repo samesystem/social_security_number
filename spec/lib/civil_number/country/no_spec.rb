@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe CivilNumber::No do
-  subject(:civil_number) { CivilNumber::No.new(number) }
+describe SocialSecurityNumber::No do
+  subject(:civil_number) { SocialSecurityNumber::No.new(number) }
   before do
     civil_number.send(:parsed_civil_number)
   end

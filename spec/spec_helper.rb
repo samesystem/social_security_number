@@ -1,5 +1,5 @@
 require 'bundler/setup'
-require 'civil_number'
+require 'social_security_number'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

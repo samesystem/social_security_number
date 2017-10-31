@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe CivilNumber::Mx do
-  subject(:civil_number) { CivilNumber::Mx.new(number) }
+describe SocialSecurityNumber::Mx do
+  subject(:civil_number) { SocialSecurityNumber::Mx.new(number) }
 
   describe '#validate' do
     let(:number) { 'GOMJ910711MTSMRS06' }

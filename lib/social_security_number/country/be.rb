@@ -1,5 +1,5 @@
-module CivilNumber
-  # CivilNumber::Be validates Belgium National Register Number
+module SocialSecurityNumber
+  # SocialSecurityNumber::Be validates Belgium National Register Number
   # https://en.wikipedia.org/wiki/National_identification_number#Belgium
   class Be < Country
     def validate

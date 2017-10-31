@@ -1,4 +1,4 @@
-module CivilNumber
+module SocialSecurityNumber
   class Ie < Country
     # https://en.wikipedia.org/wiki/Personal_Public_Service_Number
     # http://www.welfare.ie/en/Pages/Extension-of-the-Personal-Public-Service-Number-Range.aspx

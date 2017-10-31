@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "civil_number/version"
+require "social_security_number/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "civil_number"
-  spec.version       = CivilNumber::VERSION
+  spec.name          = "social_security_number"
+  spec.version       = SocialSecurityNumber::VERSION
   spec.authors       = ["SameSystem"]
   spec.email         = ["contact@samesystem.com"]
 
   spec.summary       = %q{It provides validators for national identification numbers.}
   spec.description   = %q{It provides validators for national identification numbers. Currently the following countries are supported: Belgium, Canada, China, Czech Republic, Denmark, Germany, Finland, France, Iceland, Ireland, Italy, Lithuania, Mexico, Netherlands, Norway, Pakistan, Spain, Sweden, Switzerland, United Kingdom, United States }
-  spec.homepage      = "https://gitlab.samesystem.net/gem/civil_number"
+  spec.homepage      = "https://github.com/samesystem/social_security_number"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

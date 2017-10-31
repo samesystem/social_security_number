@@ -1,4 +1,4 @@
-module CivilNumber
+module SocialSecurityNumber
   class Validator
     SUPPORTED_COUNTRY_CODES = %w[BE CA CH CN DE DK ES FI FR IE
                                  IS IT LT MX NL NO PK SE UK US].freeze
@@ -18,7 +18,7 @@ module CivilNumber
     end
 
     def valid?
-      civil_number = CivilNumber.const_get(@country_code.capitalize).new(@civil_number)
+      civil_number = SocialSecurityNumber.const_get(@country_code.capitalize).new(@civil_number)
 
       if civil_number.valid?
         if !@birth_date.nil? && !civil_number.birth_date.nil? && civil_number.birth_date.to_s != @birth_date.to_s

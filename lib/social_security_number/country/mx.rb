@@ -1,4 +1,4 @@
-module CivilNumber
+module SocialSecurityNumber
   class Mx < Country
   # https://es.stackoverflow.com/questions/31039/c%C3%B3mo-validar-una-curp-de-m%C3%A9xico
   # https://en.wikipedia.org/wiki/Unique_Population_Registry_Code

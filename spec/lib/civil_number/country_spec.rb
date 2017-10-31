@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe CivilNumber::Country do
-  subject(:civil_country) { CivilNumber::Country.new(number) }
+describe SocialSecurityNumber::Country do
+  subject(:civil_country) { SocialSecurityNumber::Country.new(number) }
 
   describe '#digit_number' do
     context 'number without divider' do
@@ -16,7 +16,7 @@ describe CivilNumber::Country do
   end
 
   describe '#gender' do
-    subject(:civil_number) { CivilNumber::Pk.new(number) }
+    subject(:civil_number) { SocialSecurityNumber::Pk.new(number) }
     context 'when receive odd value' do
       let(:number) { '1210112345672' }
       it { expect(civil_number.send(:gender)).to eq(:female) }
@@ -24,7 +24,7 @@ describe CivilNumber::Country do
   end
 
   describe '#year' do
-    subject(:civil_number) { CivilNumber::Be.new(number) }
+    subject(:civil_number) { SocialSecurityNumber::Be.new(number) }
 
     context 'when civil number is from 21th century' do
       let(:number) { '11111111120' }
@@ -38,7 +38,7 @@ describe CivilNumber::Country do
   end
 
   describe '#month' do
-    subject(:civil_number) { CivilNumber::Be.new(number) }
+    subject(:civil_number) { SocialSecurityNumber::Be.new(number) }
 
     context 'month value' do
       let(:number) { '11111111120' }
@@ -47,7 +47,7 @@ describe CivilNumber::Country do
   end
 
   describe '#day' do
-    subject(:civil_number) { CivilNumber::Be.new(number) }
+    subject(:civil_number) { SocialSecurityNumber::Be.new(number) }
 
     context 'day value' do
       let(:number) { '11111111120' }
@@ -56,7 +56,7 @@ describe CivilNumber::Country do
   end
 
   describe '#parsed_civil_number' do
-    subject(:civil_number) { CivilNumber::Be.new(number) }
+    subject(:civil_number) { SocialSecurityNumber::Be.new(number) }
 
     context 'parsed_civil_number values' do
       let(:number) { '11111111120' }
@@ -66,7 +66,7 @@ describe CivilNumber::Country do
   end
 
   describe '#date' do
-    subject(:civil_number) { CivilNumber::Be.new(number) }
+    subject(:civil_number) { SocialSecurityNumber::Be.new(number) }
 
     context 'valid value' do
       let(:number) { '11111111120' }
@@ -75,7 +75,7 @@ describe CivilNumber::Country do
   end
 
   describe '#value_from_parsed_civil_number' do
-    subject(:civil_number) { CivilNumber::Be.new(number) }
+    subject(:civil_number) { SocialSecurityNumber::Be.new(number) }
 
     context 'valid value' do
       let(:number) { '11111111120' }

@@ -1,4 +1,4 @@
-# CivilNumber
+# SocialSecurityNumber
 
 This small Gem adds useful methods to your Ruby or Ruby on Rails app to validate for national identification numbers. Currently the following countries are supported: Belgium, Canada, China, Czech Republic, Denmark, Germany, Finland, France, Iceland, Ireland, Italy, Lithuania, Mexico, Netherlands, Norway, Pakistan, Spain, Sweden, Switzerland, United Kingdom, United States.
 
@@ -32,13 +32,13 @@ The country_code should always be a ISO 3166-1 alpha-2 (http://en.wikipedia.org/
 ```
 Validations
 ```ruby
-CivilNumber::Validator.new({number:'Some number', country_code:'nl'}).valid? # => true
+SocialSecurityNumber::Validator.new({number:'Some number', country_code:'nl'}).valid? # => true
 
-CivilNumber::Validator.new({number:'Some number', country_code:'nl', birth_date: 'yyyy-mm-dd'}).valid? # => true
+SocialSecurityNumber::Validator.new({number:'Some number', country_code:'nl', birth_date: 'yyyy-mm-dd'}).valid? # => true
 
-CivilNumber::Validator.new({number:'Some number', country_code:'nl'}) # => #<CivilNumber::Validator:0x000000021e2420 @civil_number="Some number", @country_code="NL", @birth_date=birth_date from civil number information, @gender=gender from civil number information>
+SocialSecurityNumber::Validator.new({number:'Some number', country_code:'nl'}) # => #<SocialSecurityNumber::Validator:0x000000021e2420 @civil_number="Some number", @country_code="NL", @birth_date=birth_date from civil number information, @gender=gender from civil number information>
 
-civil_number = CivilNumber::Validator.new({number:'Some number', country_code:'nl'})
+civil_number = SocialSecurityNumber::Validator.new({number:'Some number', country_code:'nl'})
 civil_number.valid? # => false
 civil_number.error # => "birth date 1933-09-25 dont match 1933-09-24"
 ```
@@ -67,4 +67,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Code of Conduct
 
-Everyone interacting in the CivilNumber project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/samesystem/civil_number/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the SocialSecurityNumber project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/samesystem/civil_number/blob/master/CODE_OF_CONDUCT.md).

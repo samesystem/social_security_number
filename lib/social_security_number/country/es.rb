@@ -1,4 +1,4 @@
-module CivilNumber
+module SocialSecurityNumber
     class Es < Country
       def validate
         @error = if !validate_formats

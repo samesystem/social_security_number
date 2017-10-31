@@ -1,4 +1,4 @@
-NAME = civil_number
+NAME = social_security_number
 
 .PHONY: all build release
 

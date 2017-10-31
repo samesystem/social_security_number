@@ -1,4 +1,4 @@
-module CivilNumber
+module SocialSecurityNumber
   class Us < Country
     # https://en.wikipedia.org/wiki/National_identification_number#United_States
     # https://www.ssa.gov/employer/verifySSN.htm

@@ -1,4 +1,4 @@
-module CivilNumber
+module SocialSecurityNumber
   class Nl < Country
     def validate
       @error = if !check_digits

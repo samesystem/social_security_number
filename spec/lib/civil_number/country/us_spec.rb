@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe CivilNumber::Us do
-  subject(:civil_number) { CivilNumber::Us.new(number) }
+describe SocialSecurityNumber::Us do
+  subject(:civil_number) { SocialSecurityNumber::Us.new(number) }
 
   describe '#validate' do
     context 'when number is valid SSN' do

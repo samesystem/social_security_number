@@ -1,4 +1,4 @@
-module CivilNumber
+module SocialSecurityNumber
   class Dk < Country
     def validate
       @error = if !check_by_regexp(REGEXP)

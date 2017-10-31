@@ -1,4 +1,4 @@
-module CivilNumber
+module SocialSecurityNumber
     class Uk < Country
 
       def validate

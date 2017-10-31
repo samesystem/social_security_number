@@ -1,5 +1,5 @@
-module CivilNumber
-  # CivilNumber::Country
+module SocialSecurityNumber
+  # SocialSecurityNumber::Country
   class Country
     require 'date'
 
