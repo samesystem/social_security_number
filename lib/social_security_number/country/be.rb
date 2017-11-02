@@ -1,5 +1,5 @@
 module SocialSecurityNumber
-  # SocialSecurityNumber::Be validates Belgium National Register Number
+  # SocialSecurityNumber::Be validates Belgium National Register Number (Rijksregisternummer)
   # https://en.wikipedia.org/wiki/National_identification_number#Belgium
   class Be < Country
     def validate

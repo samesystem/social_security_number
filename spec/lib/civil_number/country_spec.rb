@@ -60,7 +60,7 @@ describe SocialSecurityNumber::Country do
 
     context 'parsed_civil_number values' do
       let(:number) { '11111111120' }
-      array = ["11111111120", "11", "11", "11", "111", "20"]
+      array = %w[11111111120 11 11 11 111 20]
       it { expect(civil_number.send(:parsed_civil_number).to_a).to eq(array) }
     end
   end

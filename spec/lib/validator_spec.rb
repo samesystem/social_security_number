@@ -3,13 +3,15 @@ require 'spec_helper'
 describe SocialSecurityNumber::Validator do
   describe '#valid?' do
     it 'when civil numer is not valid validtor must cointain error' do
-      cv = SocialSecurityNumber::Validator.new(number: '8988990707', country_code: 'lt')
+      cv = SocialSecurityNumber::Validator.new(number: '8988990707',
+                                               country_code: 'lt')
       cv.valid?
       expect(cv.error).not_to be_nil
     end
 
     it 'when civil numer is valid validtor must cointain no errors' do
-      cv = SocialSecurityNumber::Validator.new(number: '33309240064', country_code: 'lt')
+      cv = SocialSecurityNumber::Validator.new(number: '33309240064',
+                                               country_code: 'lt')
       cv.valid?
       expect(cv.error).to be_nil
     end
@@ -17,14 +19,16 @@ describe SocialSecurityNumber::Validator do
     context 'validate gender' do
       it 'when receice gender and country has gender in civil number' do
         cv = SocialSecurityNumber::Validator.new(number: '33309240064',
-                                        country_code: 'lt', gender: 'female')
+                                                 country_code: 'lt',
+                                                 gender: 'female')
         cv.valid?
         expect(cv.error).to eq('gender female dont match male')
       end
 
       it 'call Cn class method' do
         cv = SocialSecurityNumber::Validator.new(number: '111111200102021118',
-                                        country_code: 'cn', gender: 'female')
+                                                 country_code: 'cn',
+                                                 gender: 'female')
         cv.valid?
         expect(cv.error).to eq('gender female dont match male')
       end
@@ -34,24 +38,25 @@ describe SocialSecurityNumber::Validator do
       context 'when receice birth_date' do
         it 'and country dont have birth_date in civil number' do
           cv = SocialSecurityNumber::Validator.new(number: '755490976',
-                                          country_code: 'nl',
-                                          birth_date: '2010-01-01')
+                                                   country_code: 'nl',
+                                                   birth_date: '2010-01-01')
           expect(cv).to be_valid
           expect(cv.error).to be_nil
         end
 
         it 'and country have birth_date in civil number' do
           cv = SocialSecurityNumber::Validator.new(number: '33309240064',
-                                          country_code: 'lt',
-                                          birth_date: '1933-09-24')
+                                                   country_code: 'lt',
+                                                   birth_date: '1933-09-24')
           expect(cv).to be_valid
           expect(cv.error).to be_nil
         end
 
         it 'and country have birth_date in civil number in date format' do
+          date = Date.new(1933, 9, 24)
           cv = SocialSecurityNumber::Validator.new(number: '33309240064',
-                                          country_code: 'lt',
-                                          birth_date: Date.new(1933, 9, 24))
+                                                   country_code: 'lt',
+                                                   birth_date: date)
           expect(cv).to be_valid
           expect(cv.error).to be_nil
         end

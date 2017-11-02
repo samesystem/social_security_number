@@ -1,9 +1,36 @@
 # SocialSecurityNumber
 
-This small Gem adds useful methods to your Ruby or Ruby on Rails app to validate for national identification numbers. Currently the following countries are supported: Belgium, Canada, China, Czech Republic, Denmark, Germany, Finland, France, Iceland, Ireland, Italy, Lithuania, Mexico, Netherlands, Norway, Pakistan, Spain, Sweden, Switzerland, United Kingdom, United States.
+This small Gem adds useful methods to your Ruby or Ruby on Rails app to validate for national identification numbers.
 
 Find version information in the CHANGELOG.
 
+## Suppoted cauntries and numbers:
+
+* Belgium National Register Number (Rijksregisternummer)
+* Canadian Social Insurance Numbers (SINs)
+* Swiss social security numbers
+* Chinese Resident Identity Card Number
+* Czech birth numbers
+* Germany Steuer-IdNr
+* Denmark Personal Identification Number (Det Centrale Personregister (CPR))
+* Spain National Identity Document (Documento Nacional de Identidad (DNI)) number
+* Finland Personal Identity Code (Finnish: henkilötunnus (HETU))
+* France INSEE code
+* Ireland Personal Public Service Number (PPS No)
+* Iceland personal and organisation identity code (Kennitala)
+* Italy tax code for individuals (Codice fiscale)
+* Lithuania Personal Code (Asmens kodas)
+* Mexico Unique Population Registry Code (Clave Única de Registro de Población (CURP))
+* Netherlands Citizen's Service Number (Burgerservicenummer)
+* Norway birth number (Fødselsnummer)
+* Pakistan computerised national identity card number (CNIC)
+* Sweden Personal Identity Number (Personnummer)
+* United Kingdom National Insurance number (NINO)
+* United Kingdom National Health Service number
+* United Kingdom CHI (Community Health Index) number
+* U.S. Social Security number (SSN)
+* U.S. Individual Taxpayer Identification Number (ITIN)
+* U.S. Employer Identification Number (EIN)
 
 ## Installation
 
