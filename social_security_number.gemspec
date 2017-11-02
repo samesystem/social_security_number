@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "social_security_number"
   spec.version       = SocialSecurityNumber::VERSION
   spec.authors       = ["SameSystem"]
-  spec.email         = ["contact@samesystem.com"]
+  spec.email         = ["devops@samesystem.com"]
 
   spec.summary       = %q{It provides validators for national identification numbers.}
   spec.description   = %q{It provides validators for national identification numbers. Currently the following countries are supported: Belgium, Canada, China, Czech Republic, Denmark, Germany, Finland, France, Iceland, Ireland, Italy, Lithuania, Mexico, Netherlands, Norway, Pakistan, Spain, Sweden, Switzerland, United Kingdom, United States }
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "https://gems1.samesystem.net"
+    spec.metadata["allowed_push_host"] = "https://rubygems.org"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
