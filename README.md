@@ -4,7 +4,7 @@ This small Gem adds useful methods to your Ruby or Ruby on Rails app to validate
 
 Find version information in the CHANGELOG.
 
-## Suppoted cauntries and numbers:
+## Suppoted countries and numbers:
 
 * Belgium National Register Number (Rijksregisternummer)
 * Canadian Social Insurance Numbers (SINs)
