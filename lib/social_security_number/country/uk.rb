@@ -1,6 +1,8 @@
 module SocialSecurityNumber
+    # SocialSecurityNumber::Uk validates United Kingdom National Insurance number (NINO) and
+    # National Health Service number, CHI (Community Health Index) number
+    # https://en.wikipedia.org/wiki/National_identification_number#United_Kingdom
     class Uk < Country
-
       def validate
         @error = if !validate_formats
                    'bad number format'

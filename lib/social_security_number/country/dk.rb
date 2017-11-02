@@ -1,4 +1,6 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Dk validates Denmark Personal Identification Number (Det Centrale Personregister (CPR))
+  # https://en.wikipedia.org/wiki/National_identification_number#Denmark
   class Dk < Country
     def validate
       @error = if !check_by_regexp(REGEXP)

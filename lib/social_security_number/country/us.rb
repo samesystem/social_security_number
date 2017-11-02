@@ -1,10 +1,11 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Us validates U.S. (America) Social Security number (SSN) and
+  # Individual Taxpayer Identification Number (ITIN), Employer Identification Number (EIN)
+  # https://en.wikipedia.org/wiki/National_identification_number#United_States
+  # https://www.ssa.gov/employer/verifySSN.htm
+  # https://en.wikipedia.org/wiki/Social_Security_number
+  # https://en.wikipedia.org/wiki/Individual_Taxpayer_Identification_Number
   class Us < Country
-    # https://en.wikipedia.org/wiki/National_identification_number#United_States
-    # https://www.ssa.gov/employer/verifySSN.htm
-    # https://en.wikipedia.org/wiki/Social_Security_number
-    # https://en.wikipedia.org/wiki/Individual_Taxpayer_Identification_Number
-
     def validate
       @error = if !validate_formats
                  'bad number format'

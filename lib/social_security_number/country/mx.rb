@@ -1,8 +1,9 @@
 module SocialSecurityNumber
-  class Mx < Country
+  # SocialSecurityNumber::Mx validates Mexico Unique Population Registry Code (Clave Única de Registro de Población (CURP))
   # https://es.stackoverflow.com/questions/31039/c%C3%B3mo-validar-una-curp-de-m%C3%A9xico
   # https://en.wikipedia.org/wiki/Unique_Population_Registry_Code
   # https://es.wikipedia.org/wiki/Registro_Federal_de_Contribuyentes_(M%C3%A9xico)
+  class Mx < Country
     def validate
       @error = if !check_by_regexp(REGEXP)
                  'bad number format'

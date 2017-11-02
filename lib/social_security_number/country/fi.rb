@@ -1,4 +1,6 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Fi validates Finland Personal Identity Code (Finnish: henkilötunnus (HETU))
+  # https://en.wikipedia.org/wiki/National_identification_number#Finland
   class Fi < Country
     def validate
       @error = if !check_by_regexp(REGEXP)

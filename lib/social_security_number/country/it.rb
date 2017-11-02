@@ -1,4 +1,6 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::It validates Italy tax code for individuals (Codice fiscale)
+  # https://en.wikipedia.org/wiki/National_identification_number#Italy
   class It < Country
     def validate
       @error = if !check_by_regexp(REGEXP)

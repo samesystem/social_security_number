@@ -1,4 +1,5 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Validator
   class Validator
     SUPPORTED_COUNTRY_CODES = %w[BE CA CH CN DE DK ES FI FR IE
                                  IS IT LT MX NL NO PK SE UK US].freeze

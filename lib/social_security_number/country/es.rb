@@ -1,4 +1,10 @@
 module SocialSecurityNumber
+    # SocialSecurityNumber::Es validates Spain National Identity Document  (Documento Nacional de Identidad (DNI)) number
+    # and NIE Number (Número de Identificación de Extranjeros, Foreigner's Identification Number)
+    # The NIE is an identification number for foreigners. It is a 9 digit number
+    # where the first digit is either X, Y or Z and last digit is a checksum letter.
+    # The DNI is a 9 digit number used to identify Spanish citizens. The last digit is a checksum letter.
+    # https://en.wikipedia.org/wiki/National_identification_number#Spain
     class Es < Country
       def validate
         @error = if !validate_formats

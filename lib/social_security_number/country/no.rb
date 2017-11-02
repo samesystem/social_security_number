@@ -1,4 +1,6 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::No validates Norway eleven-digit birth number (fødselsnummer)
+  # https://en.wikipedia.org/wiki/National_identification_number#Norway
   class No < Country
     def validate
       @error = if !check_by_regexp(REGEXP)

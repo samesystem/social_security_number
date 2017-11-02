@@ -1,4 +1,6 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Nl validates Netherlands Citizen's Service Number (Burgerservicenummer)
+  # https://en.wikipedia.org/wiki/National_identification_number#Netherlands
   class Nl < Country
     def validate
       @error = if !check_digits

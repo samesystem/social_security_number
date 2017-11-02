@@ -1,7 +1,8 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Ie validates Ireland Personal Public Service Number (PPS No)
+  # https://en.wikipedia.org/wiki/Personal_Public_Service_Number
+  # http://www.welfare.ie/en/Pages/Extension-of-the-Personal-Public-Service-Number-Range.aspx
   class Ie < Country
-    # https://en.wikipedia.org/wiki/Personal_Public_Service_Number
-    # http://www.welfare.ie/en/Pages/Extension-of-the-Personal-Public-Service-Number-Range.aspx
     def validate
       @error = if !check_by_regexp(REGEXP)
                  'bad number format'

@@ -1,4 +1,7 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Pk validates Pakistan computerised national identity card number (CNIC)
+  # https://en.wikipedia.org/wiki/National_identification_number#Pakistan
+  # https://www.geo.tv/latest/157233-secret-behind-every-digit-of-the-cnic-number
   class Pk < Country
     def validate
       @error = unless check_by_regexp(REGEXP)

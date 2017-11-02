@@ -1,4 +1,6 @@
 module SocialSecurityNumber
+    # SocialSecurityNumber::Fr validates France INSEE code 
+    # https://en.wikipedia.org/wiki/National_identification_number#France
     class Fr < Country
       def validate
         @error = if !check_by_regexp(REGEXP)

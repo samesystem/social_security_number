@@ -1,4 +1,6 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Se validates Sweden Personal Identity Number (personnummer)
+  # https://en.wikipedia.org/wiki/National_identification_number#Sweden
   class Se < Country
     def validate
       @error = if !check_by_regexp(REGEXP)

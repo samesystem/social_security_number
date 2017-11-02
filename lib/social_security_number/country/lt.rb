@@ -1,4 +1,6 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Lt validates Lithuania Personal Code (Asmens kodas)
+  # https://en.wikipedia.org/wiki/National_identification_number#Lithuania
   class Lt < Country
     def validate
       @error = if !check_digits

@@ -1,4 +1,6 @@
 module SocialSecurityNumber
+  # SocialSecurityNumber::Is validates Iceland personal and organisation identity code (Kennitala)
+  # https://en.wikipedia.org/wiki/National_identification_number#Iceland
   class Is < Country
     def validate
       @error = if !check_by_regexp(REGEXP)
