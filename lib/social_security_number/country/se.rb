@@ -43,7 +43,7 @@ module SocialSecurityNumber
     def checksum(operation)
       i = 0
       compare_method = operation == :even ? :== : :>
-      digit_number[0..8].reverse.split('').reduce(0) do |sum, c|
+      digit_number[2..10].reverse.split('').reduce(0) do |sum, c|
         n = c.to_i
         weight = (i % 2).send(compare_method, 0) ? n * 2 : n
         i += 1
