@@ -32,6 +32,8 @@ module SocialSecurityNumber
 
     CONTROLCIPHERS = [2, 1, 2, 1, 2, 1, 2, 1, 2].freeze
 
+    YEAR_REGEXP = /(?<year>((?<century>\d{2})(?<year1>\d{2})|(\d{2})))/
+    DATE_REGEXP = /#{YEAR_REGEXP}(?<month>\d{2})(?<day>\d{2})/
     REGEXP = /^#{DATE_REGEXP}[- ]?(?<indv>\d{2})(?<gnd>\d{1})(?<ctrl>\d{1})$/
 
     def check_control_digit
@@ -43,7 +45,8 @@ module SocialSecurityNumber
     def checksum(operation)
       i = 0
       compare_method = operation == :even ? :== : :>
-      digit_number[2..10].reverse.split('').reduce(0) do |sum, c|
+      numer = "#{@year.to_s[2..3]}#{@month}#{@day}#{@individual}#{@parsed_civil_number[:gnd]}"
+      numer.reverse.split('').reduce(0) do |sum, c|
         n = c.to_i
         weight = (i % 2).send(compare_method, 0) ? n * 2 : n
         i += 1

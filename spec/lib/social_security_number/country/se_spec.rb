@@ -15,6 +15,11 @@ describe SocialSecurityNumber::Se do
       it { is_expected.to be_valid }
     end
 
+    context 'when number is valid with short data' do
+      let(:number) { '3910304298' }
+      it { is_expected.to be_valid }
+    end
+
     context 'when number contains not digits' do
       let(:number) { '19391AA030-4298' }
       it { is_expected.not_to be_valid }
