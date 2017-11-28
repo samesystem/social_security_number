@@ -32,7 +32,7 @@ module SocialSecurityNumber
 
     CONTROLCIPHERS = [2, 1, 2, 1, 2, 1, 2, 1, 2].freeze
 
-    REGEXP = /^#{DATE_REGEXP}-(?<indv>\d{2})(?<gnd>\d{1})(?<ctrl>\d{1})$/
+    REGEXP = /^#{DATE_REGEXP}[- ]?(?<indv>\d{2})(?<gnd>\d{1})(?<ctrl>\d{1})$/
 
     def check_control_digit
       sum = checksum(:even)

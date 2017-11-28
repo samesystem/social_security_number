@@ -6,7 +6,12 @@ describe SocialSecurityNumber::Se do
   describe '#validate' do
     let(:number) { '19391030-4298' }
 
-    context 'when number is valid' do
+    context 'when number is valid with divider' do
+      it { is_expected.to be_valid }
+    end
+
+    context 'when number is valid with no divider' do
+      let(:number) { '193910304298' }
       it { is_expected.to be_valid }
     end
 
