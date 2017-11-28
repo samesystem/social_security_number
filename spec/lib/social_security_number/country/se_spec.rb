@@ -20,6 +20,11 @@ describe SocialSecurityNumber::Se do
       it { is_expected.to be_valid }
     end
 
+    context 'when number dont have control digit' do
+      let(:number) { '391030429' }
+      it { is_expected.to be_valid }
+    end
+
     context 'when number contains not digits' do
       let(:number) { '19391AA030-4298' }
       it { is_expected.not_to be_valid }
