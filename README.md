@@ -8,12 +8,11 @@ Find version information in the CHANGELOG.
 
 * Belgium National Register Number (Rijksregisternummer)
 * Canadian Social Insurance Numbers (SINs)
-* Swiss social security numbers
 * Chinese Resident Identity Card Number
 * Czech birth numbers
 * Germany Steuer-IdNr
 * Denmark Personal Identification Number (Det Centrale Personregister (CPR))
-* Spain National Identity Document (Documento Nacional de Identidad (DNI)) number
+* Estonian Personal Identification Code (Isikukood (IK))
 * Finland Personal Identity Code (Finnish: henkilötunnus (HETU))
 * France INSEE code
 * Ireland Personal Public Service Number (PPS No)
@@ -24,7 +23,9 @@ Find version information in the CHANGELOG.
 * Netherlands Citizen's Service Number (Burgerservicenummer)
 * Norway birth number (Fødselsnummer)
 * Pakistan computerised national identity card number (CNIC)
+* Spain National Identity Document (Documento Nacional de Identidad (DNI)) number
 * Sweden Personal Identity Number (Personnummer)
+* Swiss social security numbers
 * United Kingdom National Insurance number (NINO)
 * United Kingdom National Health Service number
 * United Kingdom CHI (Community Health Index) number

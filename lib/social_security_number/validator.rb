@@ -1,7 +1,7 @@
 module SocialSecurityNumber
   # SocialSecurityNumber::Validator
   class Validator
-    SUPPORTED_COUNTRY_CODES = %w[BE CA CH CN CZ DE DK ES FI FR GB IE
+    SUPPORTED_COUNTRY_CODES = %w[BE CA CH CN CZ DE DK EE ES FI FR GB IE
                                  IS IT LT MX NL NO PK SE US].freeze
 
     attr_accessor :civil_number, :country_code, :error
