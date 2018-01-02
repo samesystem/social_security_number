@@ -18,6 +18,7 @@ Find version information in the CHANGELOG.
 * Ireland Personal Public Service Number (PPS No)
 * Iceland personal and organisation identity code (Kennitala)
 * Italy tax code for individuals (Codice fiscale)
+* Latvian Personal Code (Personas kods)
 * Lithuania Personal Code (Asmens kodas)
 * Mexico Unique Population Registry Code (Clave Única de Registro de Población (CURP))
 * Netherlands Citizen's Service Number (Burgerservicenummer)
