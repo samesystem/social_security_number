@@ -46,6 +46,11 @@ describe SocialSecurityNumber::Ee do
   end
 
   describe '#check_control_sum' do
+    let(:number) { '34501234215' }
+    it { expect(civil_number.send(:count_last_number)).to eq(5) }
+  end
+
+  describe '#check_control_sum' do
     let(:number) { '37605030299' }
     it { expect(civil_number.send(:count_last_number)).to eq(9) }
   end

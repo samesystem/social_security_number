@@ -48,7 +48,10 @@ module SocialSecurityNumber
     def count_last_number
       sum = calc_sum(@civil_number[0..9], CONTROLCIPHERS)
       last_number = sum % MODULUS
-      sum - (last_number * MODULUS)
+      return last_number unless last_number == 10
+      sum = calc_sum(@civil_number[0..9], CONTROLCIPHERS2)
+      last_number = sum % MODULUS
+      last_number == 10 ? 0 : last_number
     end
   end
 end
