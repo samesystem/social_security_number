@@ -38,6 +38,7 @@ module SocialSecurityNumber
     MODULUS = 11
 
     CONTROLCIPHERS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1].freeze
+    CONTROLCIPHERS2 = [3, 4, 5, 6, 7, 8, 9, 1, 2, 3].freeze
 
     REGEXP = /^(?<gnd>\d{1})#{SHORT_DATE_REGEXP}-?(?<indv>\d{3})(?<ctrl>\d{1})$/
 
