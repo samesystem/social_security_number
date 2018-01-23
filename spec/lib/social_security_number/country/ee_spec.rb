@@ -55,6 +55,11 @@ describe SocialSecurityNumber::Ee do
     it { expect(civil_number.send(:count_last_number)).to eq(9) }
   end
 
+  describe '#check_control_sum using second control ciphers' do
+    let(:number) { '36603150341' }
+    it { expect(civil_number.send(:count_last_number)).to eq(1) }
+  end
+
   describe '#check_control_sum' do
     context 'when control number coincide with count number' do
       let(:number) { '37605030299' }
