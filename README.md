@@ -6,32 +6,32 @@ Find version information in the CHANGELOG.
 
 ## Suppoted countries and numbers:
 
-* Belgium National Register Number (Rijksregisternummer)
-* Canadian Social Insurance Numbers (SINs)
-* Chinese Resident Identity Card Number
-* Czech birth numbers
-* Germany Steuer-IdNr
-* Denmark Personal Identification Number (Det Centrale Personregister (CPR))
-* Estonian Personal Identification Code (Isikukood (IK))
-* Finland Personal Identity Code (Finnish: henkilötunnus (HETU))
-* France INSEE code
-* Ireland Personal Public Service Number (PPS No)
-* Iceland personal and organisation identity code (Kennitala)
-* Italy tax code for individuals (Codice fiscale)
-* Latvian Personal Code (Personas kods)
-* Lithuania Personal Code (Asmens kodas)
-* Mexico Unique Population Registry Code (Clave Única de Registro de Población (CURP))
-* Netherlands Citizen's Service Number (Burgerservicenummer)
-* Norway birth number (Fødselsnummer)
-* Pakistan computerised national identity card number (CNIC)
-* Spain National Identity Document (Documento Nacional de Identidad (DNI)) number
-* Sweden Personal Identity Number (Personnummer)
-* Swiss social security numbers
+* Belgium [National Register Number (Rijksregisternummer)](https://en.wikipedia.org/wiki/National_identification_number#Belgium)
+* Canadian [Social Insurance Numbers (SINs)](https://en.wikipedia.org/wiki/Social_Insurance_Number)
+* Chinese [Resident Identity Card Number](https://en.wikipedia.org/wiki/Resident_Identity_Card#Identity_card_number)
+* Czech [birth numbers](https://en.wikipedia.org/wiki/National_identification_number#Czech_Republic_and_Slovakia)
+* Germany [Steuer-IdNr (Steuerliche Identifikationsnummer)](https://en.wikipedia.org/wiki/National_identification_number#Germany)
+* Denmark [Personal Identification Number (Det Centrale Personregister (CPR))](https://en.wikipedia.org/wiki/National_identification_number#Denmark)
+* Estonian [Personal Identification Code (Isikukood (IK))](https://en.wikipedia.org/wiki/National_identification_number#Estonia)
+* Finland [Personal Identity Code (Finnish: henkilötunnus (HETU))](https://en.wikipedia.org/wiki/National_identification_number#Finland)
+* France [social insurance number](https://en.wikipedia.org/wiki/National_identification_number#France)
+* Ireland [Personal Public Service Number (PPS No)](https://en.wikipedia.org/wiki/Personal_Public_Service_Number)
+* Iceland [personal and organisation identity code (Kennitala)](https://en.wikipedia.org/wiki/National_identification_number#Iceland)
+* Italy [tax code for individuals (Codice fiscale)](https://en.wikipedia.org/wiki/National_identification_number#Italy)
+* Latvian [Personal Code (Personas kods)](https://en.wikipedia.org/wiki/National_identification_number#Latvia)
+* Lithuania [Personal Code (Asmens kodas)](https://en.wikipedia.org/wiki/National_identification_number#Lithuania)
+* Mexico [Unique Population Registry Code (Clave Única de Registro de Población (CURP))](https://en.wikipedia.org/wiki/Unique_Population_Registry_Code)
+* Netherlands [Citizen's Service Number (Burgerservicenummer)](https://en.wikipedia.org/wiki/National_identification_number#Netherlands)
+* Norway [birth number (Fødselsnummer)](https://en.wikipedia.org/wiki/National_identification_number#Norway)
+* Pakistan [computerised national identity card number (CNIC)](https://en.wikipedia.org/wiki/National_identification_number#Pakistan)
+* Spain [National Identity Document (Documento Nacional de Identidad (DNI)) number](https://en.wikipedia.org/wiki/National_identification_number#Spain)
+* Sweden [Personal Identity Number (Personnummer)](https://en.wikipedia.org/wiki/National_identification_number#Sweden)
+* Swiss [social security numbers](https://en.wikipedia.org/wiki/National_identification_number#Switzerland)
 * United Kingdom National Insurance number (NINO)
 * United Kingdom National Health Service number
 * United Kingdom CHI (Community Health Index) number
-* U.S. Social Security number (SSN)
-* U.S. Individual Taxpayer Identification Number (ITIN)
+* U.S. [Social Security number (SSN)](https://en.wikipedia.org/wiki/Social_Security_number)
+* U.S. [Individual Taxpayer Identification Number (ITIN)](https://en.wikipedia.org/wiki/Individual_Taxpayer_Identification_Number)
 * U.S. Employer Identification Number (EIN)
 
 ## Installation
