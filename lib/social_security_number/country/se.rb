@@ -14,12 +14,6 @@ module SocialSecurityNumber
 
     def year
       if @parsed_civil_number
-        base = case @parsed_civil_number[:year].to_i
-               when 1..40 then 2000
-               when 40..99 then 1900
-               else
-                 0
-               end
         @year = base + @parsed_civil_number[:year].to_i
       else
         0
@@ -52,6 +46,15 @@ module SocialSecurityNumber
         weight = (i % 2).send(compare_method, 0) ? n * 2 : n
         i += 1
         sum += weight < 10 ? weight : weight - 9
+      end
+    end
+
+    def base
+      case @parsed_civil_number[:year].to_i
+      when 0..40 then 2000
+      when 40..99 then 1900
+      else
+        0
       end
     end
   end
