@@ -86,6 +86,11 @@ describe SocialSecurityNumber::Se do
         let(:number) { '18881030-4296' }
         it { expect(civil_number.send(:year)).to eq(1888) }
       end
+
+      context 'when civil number is 2000' do
+        let(:number) { '0010304298' }
+        it { expect(civil_number.send(:year)).to eq(2000) }
+      end
     end
 
     context 'when receive invalid value' do
