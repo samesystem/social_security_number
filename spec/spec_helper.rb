@@ -1,5 +1,16 @@
 require 'bundler/setup'
+
+require 'simplecov'
+SimpleCov.start do
+  add_filter(/_spec.rb\Z/)
+end
+
 require 'social_security_number'
+
+if ENV['CODECOV_TOKEN']
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
