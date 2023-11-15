@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/samesystem/graphql_rails.svg?branch=master)](https://travis-ci.org/samesystem/graphql_rails)
 [![codecov](https://codecov.io/gh/samesystem/social_security_number/branch/master/graph/badge.svg)](https://codecov.io/gh/samesystem/social_security_number)
 
 # SocialSecurityNumber
