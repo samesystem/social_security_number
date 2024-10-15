@@ -13,7 +13,7 @@ Find version information in the CHANGELOG.
 * Canadian [Social Insurance Numbers (SINs)](https://en.wikipedia.org/wiki/Social_Insurance_Number)
 * Chinese [Resident Identity Card Number](https://en.wikipedia.org/wiki/Resident_Identity_Card#Identity_card_number)
 * Czech [birth numbers](https://en.wikipedia.org/wiki/National_identification_number#Czech_Republic_and_Slovakia)
-* Germany [Steuer-IdNr (Steuerliche Identifikationsnummer)](https://en.wikipedia.org/wiki/National_identification_number#Germany)
+* Germany [Steuer-IdNr (Steuerliche Identifikationsnummer)](https://en.wikipedia.org/wiki/National_identification_number#Germany) and [RVNR (Rentenversicherungsnummer)](https://de.wikipedia.org/wiki/Versicherungsnummer)
 * Denmark [Personal Identification Number (Det Centrale Personregister (CPR))](https://en.wikipedia.org/wiki/National_identification_number#Denmark)
 * Estonian [Personal Identification Code (Isikukood (IK))](https://en.wikipedia.org/wiki/National_identification_number#Estonia)
 * Finland [Personal Identity Code (Finnish: henkilötunnus (HETU))](https://en.wikipedia.org/wiki/National_identification_number#Finland)
