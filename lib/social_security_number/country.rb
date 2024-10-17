@@ -10,8 +10,9 @@ module SocialSecurityNumber
     SHORT_DATE2_REGEXP = /(?<day>\d{2})(?<month>\d{2})(?<year>\d{2})/
     SHORT_DATE_REGEXP = /(?<year>\d{2})(?<month>\d{2})(?<day>\d{2})/
 
-    def initialize(civil_number)
+    def initialize(civil_number, validate_social_insurance_number = false)
       @civil_number = civil_number.to_s.upcase
+      @validate_social_insurance_number = validate_social_insurance_number
       values_from_number if self.class.const_defined?('REGEXP')
     end
 
