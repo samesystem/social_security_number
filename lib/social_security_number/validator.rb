@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 module SocialSecurityNumber
   # SocialSecurityNumber::Validator
   class Validator
     SUPPORTED_COUNTRY_CODES = %w[BE CA CH CN CZ DE DE2 DK EE ES FI FR GB IE
                                  IS IT LT LV MX NL NO PK SE US].freeze
 
-    attr_accessor :civil_number, :country_code, :error, :validate_social_insurance_number
+    attr_accessor :civil_number, :country_code, :error,
+                  :validate_social_insurance_number
 
     def initialize(params = {})
       @civil_number = params[:number].to_s.strip.gsub(/\s+/, '').upcase
@@ -21,8 +24,8 @@ module SocialSecurityNumber
 
     def valid?
       civil_number = SocialSecurityNumber
-        .const_get(@country_code.capitalize)
-        .new(@civil_number, @validate_social_insurance_number)
+                     .const_get(@country_code.capitalize)
+                     .new(@civil_number, @validate_social_insurance_number)
 
       if civil_number.valid?
         if !@birth_date.nil? && !civil_number.birth_date.nil? && civil_number.birth_date.to_s != @birth_date.to_s

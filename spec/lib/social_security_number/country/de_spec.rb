@@ -110,32 +110,44 @@ describe SocialSecurityNumber::De do
 
     context 'when control number coincides with count number' do
       let(:number) { '33309240064' }
-      it { expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(true) }
+      it {
+        expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(true)
+      }
     end
 
     context 'when control number does not coincide with count number' do
       let(:number) { '33309240063' }
-      it { expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(false) }
+      it {
+        expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(false)
+      }
     end
 
     context 'validates 2015-tax-id correctly' do
       let(:number) { '12345678995' }
-      it { expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(true) }
+      it {
+        expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(true)
+      }
     end
 
     context 'invalidates incorrect 2015-tax-id' do
       let(:number) { '12346678995' }
-      it { expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(false) }
+      it {
+        expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(false)
+      }
     end
 
     context 'validates 2016-tax-id correctly' do
       let(:number) { '12345679998' }
-      it { expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(true) }
+      it {
+        expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(true)
+      }
     end
 
     context 'invalidates incorrect 2016-tax-id' do
       let(:number) { '12335679998' }
-      it { expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(false) }
+      it {
+        expect(civil_number.send(:check_control_sum_steuer_idnr)).to eq(false)
+      }
     end
   end
 
